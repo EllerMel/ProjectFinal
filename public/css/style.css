@@ -10,8 +10,7 @@
     font-size: 16px;
 }
   
-.btn-purple {
-    background-color: rgba(102, 22, 102, 0.842);
+.btn-main {
     border: none;
     color: white;
     margin-top:10px;
@@ -19,6 +18,10 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+
+.btn-purple {
+    background-color: rgba(102, 22, 102, 0.842);
 }
 
 .btn-grey {

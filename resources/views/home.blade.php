@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! Please select one of the options below.
                     
                     <br>
                     @if (Auth::user()->admin == 1)
@@ -48,14 +48,20 @@
                     <div class="container center">
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Farm Info</button>
-                            </div>
-                            <div class="col">
                                 <a href="/horses" class="btn btn-menu">Horses</a>
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-menu">Schedule</button>
                             </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="btn btn-menu">Profile Info</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-menu">Farm Info</button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 @endif

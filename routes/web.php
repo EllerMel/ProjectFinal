@@ -31,3 +31,5 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
     });
 });
+
+Route::resource('horses', 'HorseController');

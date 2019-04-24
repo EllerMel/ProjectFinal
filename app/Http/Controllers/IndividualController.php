@@ -14,7 +14,9 @@ class IndividualController extends Controller
      */
     public function index()
     {
-        //
+        $individuals = Individual::all();
+
+        return view('individuals.index', compact('individuals'));
     }
 
     /**
@@ -55,9 +57,11 @@ class IndividualController extends Controller
      * @param  \App\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function edit(Individual $individual)
+    public function edit($id)
     {
-        //
+        $individual = Individual::findOrFail($id);
+
+        return view('individuals.edit', compact('individual'));
     }
 
     /**
@@ -67,9 +71,18 @@ class IndividualController extends Controller
      * @param  \App\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Individual $individual)
+    public function update($id)
     {
-        //
+        $individual = Individual::findOrFail($id);
+
+        $individual->displayName = request('displayName');
+        $individual->phoneNumber= request('phoneNumber');
+        $individual->emergencyContact= request('emergencyContact');
+        $individual->emergencyPhone= request('emergencyPhone'); 
+
+        $individual->save();
+
+        return redirect('/individuals');
     }
 
     /**

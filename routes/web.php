@@ -33,3 +33,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::resource('horses', 'HorseController');
+Route::resource('individuals', 'IndividualController');

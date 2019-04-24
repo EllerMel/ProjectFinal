@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/horses">Horses</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/individuals">Individuals</a>
+                        </li>
                         @else
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>

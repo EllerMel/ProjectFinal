@@ -21,7 +21,7 @@
                     <div class="container center">
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Individuals</button>
+                                <a href="/individuals" class="btn btn-menu">Individuals</a>
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-menu">Schedule</button>

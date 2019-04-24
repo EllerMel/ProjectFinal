@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Individual;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,6 +75,12 @@ class RegisterController extends Controller
         if ($admin) {
             $admin->notify(new NewUser($user));
         }
+
+        $individual = Individual::create([
+            'displayName' => $user['name'],
+            'user_id' => $user['id']
+        ]);
+
 
         return $user;
     }

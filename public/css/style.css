@@ -1,0 +1,42 @@
+.btn-menu {
+    background-color: rgba(102, 22, 102, 0.842);
+    border: none;
+    color: white;
+    min-width: 175px;
+    margin-top:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+  
+.btn-purple {
+    background-color: rgba(102, 22, 102, 0.842);
+    border: none;
+    color: white;
+    margin-top:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn-grey {
+    background-color: rgb(117, 116, 116);
+    border: none;
+    color: white;
+    margin-top:5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.center {
+    text-align: center;
+}
+
+.horseImg {
+    max-width: 50%;
+    height: auto;
+}

@@ -80,7 +80,7 @@ class HorseController extends Controller
      */
     public function show(Horse $horse)
     {
-        //
+        return view('horses.show', compact('horse'));
     }
 
     /**

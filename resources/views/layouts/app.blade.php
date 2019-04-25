@@ -54,10 +54,16 @@
                         </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="/home">Dashboard</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/horses">Horses</a>
+                        </li>
+                        <li class="nav-item">
+                            <?php
+                                $individual = Auth::user()->individual;
+                            ?>
+                            <a href="/individuals/{{ $individual->id }} " class="nav-link">Profile</a>
                         </li>
                         @endguest
                     </ul>

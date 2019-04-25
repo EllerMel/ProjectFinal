@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Individual;
+use Auth;
 use Illuminate\Http\Request;
 
 class IndividualController extends Controller
@@ -82,7 +83,15 @@ class IndividualController extends Controller
 
         $individual->save();
 
-        return redirect('/individuals');
+        $user = Auth::user();
+        
+        if ($user->admin)
+        {
+            return redirect('/individuals');
+        }
+        else{
+            return redirect('/individuals/' . $id);
+        }
     }
 
     /**

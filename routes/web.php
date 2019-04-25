@@ -39,3 +39,5 @@ Route::get('horses/{horse}', 'HorseController@show')->name('horse.show');
 Route::resource('individuals', 'IndividualController');
 
 Route::get('individuals/{individual}', 'IndividualController@show')->name('individual.show');
+
+Route::resource('farm', 'FarmController');

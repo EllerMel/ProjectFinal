@@ -40,7 +40,7 @@
                                 <button type="button" class="btn btn-menu">Pastures/Rings</button>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Farm Info</button>
+                                <a href="/farm" class="btn btn-menu">Farm Info</a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 <a href="/individuals/{{ $individual->id }} " class="btn btn-menu">View Profile</a>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Farm Info</button>
+                                <a href="/farm" class="btn btn-menu">Farm Info</a>
                             </div>
                         </div>
                         </div>

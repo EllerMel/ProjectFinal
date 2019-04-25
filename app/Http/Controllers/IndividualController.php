@@ -48,7 +48,7 @@ class IndividualController extends Controller
      */
     public function show(Individual $individual)
     {
-        //
+        return view('individuals.show', compact('individual'));
     }
 
     /**

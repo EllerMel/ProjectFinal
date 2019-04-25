@@ -56,7 +56,10 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Profile Info</button>
+                            <?php
+                                $individual = Auth::user()->individual;
+                            ?>
+                                <a href="/individuals/{{ $individual->id }} " class="btn btn-menu">View Profile</a>
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-menu">Farm Info</button>

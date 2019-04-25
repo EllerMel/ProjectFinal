@@ -34,3 +34,5 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('horses', 'HorseController');
 Route::resource('individuals', 'IndividualController');
+
+Route::get('individuals/{individual}', 'IndividualController@show')->name('individual.show');

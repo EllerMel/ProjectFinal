@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Farm;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class FarmController extends Controller
 {

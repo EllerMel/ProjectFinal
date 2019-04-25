@@ -32,7 +32,7 @@
                                 <a href="/horses" class="btn btn-menu">Horses</a>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Tack</button>
+                                <a href="/tack" class="btn btn-menu">Tack</a>
                             </div>
                         </div>
                         <div class="row">

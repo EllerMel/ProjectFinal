@@ -23,7 +23,7 @@
 
     @foreach($horses as $horse)
         <div class="row">
-            <div class="col">{{ $horse->name }}</div>
+            <div class="col"><a href="/horses/{{ $horse->id }}" class="link">{{ $horse->name }}</a></div>
             <div class="col">{{ $horse->color }}</div>
             <div class="col">{{ $horse->markings }}</div>
             @if (Auth::user()->admin == 1)

@@ -82,7 +82,7 @@
             </div>
             <br>
             <div>
-                <button type="submit"class="btn btn-menu">Add Horse</button>
+                <button type="submit"class="btn btn-purple btn-main">Add Horse</button>
             </div>
         </form>
     </div>

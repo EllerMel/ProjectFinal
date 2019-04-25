@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="title">Edit Horse</h1>
 
-    <form method="POST" action="/horses/{{ $horse->id }}">
+    <form method="POST" action="/horses/{{ $horse->id }}" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
 

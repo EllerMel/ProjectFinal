@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Horse;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -103,13 +104,18 @@ class HorseController extends Controller
      * @param  \App\Horse  $horse
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $horse = Horse::findOrFail($id);
 
         $horse->name = request('name');
         $horse->color = request('color');
-        $horse->markings = request('markings');        
+        $horse->markings = request('markings');
+
+        if($request->hasFile('mainImg')) {
+            $path = $request->file('mainImg')->store('images');
+            $horse->mainImg = $path;
+        }
 
         $horse->save();
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="title">Edit Horse</h1>
+    <h1 class="title">Edit Horse - {{ $horse->name }}</h1>
 
     <form method="POST" action="/horses/{{ $horse->id }}" enctype="multipart/form-data">
         {{ method_field('PATCH') }}
@@ -11,22 +11,30 @@
         <br>
         <div class="form-group">
             <div class="row">
+                <div class="col"></div>
+                <div class="col center">
+                    <input class="form-check-input" type="checkbox" name="isInactive" value="{{ $horse->isInactive }}" id="{{ $horse->id }}"
+                        @if($horse->isInactive) checked="checked" @endif >
+
+                        <label class="form-check-label">Mark Inactive</label>
+                </div>
+            </div>
+            <br>
+            
+            <div class="row">
                 <div class="col">
                     <label>Name</label>
                 </div>
-                <div class="col center">
+                <div class="col">
+                    <label>Gender</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" name="name" placeholder="Horse name" value="{{ $horse->name }}">
                 </div>
-                <div class="col center">
-                    <input class="form-check-input" type="checkbox" value="{{ $horse->isInactive }}" id="{{ $horse->id }}"
-                    @if($horse->isInactive) checked="checked" @endif >
-
-                    <label class="form-check-label">Inactive</label>
-                    
+                <div class="col">
+                    <input type="text" class="form-control" name="gender" placeholder="Gender" value="{{ $horse->gender }}">
                 </div>
             </div>
             <br>
@@ -45,6 +53,60 @@
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" name="markings" placeholder="Horse markings" value="{{ $horse->markings }}">
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Saddle</label>
+                </div>
+                <div class="col">
+                    <label>Bridle</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="saddle" placeholder="Saddle" value="{{ $horse->saddle }}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="bridle" placeholder="Bridle" value="{{ $horse->bridle }}">
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Girth</label>
+                </div>
+                <div class="col">
+                    <label>Misc Tack</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="girth" placeholder="Girth" value="{{ $horse->girth }}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="miscTack" placeholder="Miscellaneous: Riser Pad, crop, etc." value="{{ $horse->miscTack }}">
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Pasture</label>
+                </div>
+                <div class="col">
+                    <label>Stall</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="pasture" placeholder="Pasture" value="{{ $horse->pasture }}">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="stall" placeholder="Stall" value="{{ $horse->stall }}">
                 </div>
             </div>
             <br>

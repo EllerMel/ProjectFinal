@@ -17,6 +17,7 @@
     @if (Auth::user()->admin == 1)
     <div class="row">
             <div class="col"><strong>Name</strong></div>
+            <div class="col"><strong>Gender</strong></div>            
             <div class="col"><strong>Color</strong></div>
             <div class="col"><strong>Markings</strong></div>
             <div class="col center"><strong>Inactive</strong></div>
@@ -26,6 +27,7 @@
     @if($horse->isDeleted == 0)
         <div class="row">
             <div class="col"><a href="/horses/{{ $horse->id }}" class="link">{{ $horse->name }}</a></div>
+            <div class="col">{{ $horse->gender }}</div>
             <div class="col">{{ $horse->color }}</div>
             <div class="col">{{ $horse->markings }}</div>
             <div class="col center">
@@ -40,6 +42,7 @@
     @else
     <div class="row">
             <div class="col"><strong>Name</strong></div>
+            <div class="col"><strong>Gender</strong></div>  
             <div class="col"><strong>Color</strong></div>
             <div class="col"><strong>Markings</strong></div>
         </div>
@@ -47,6 +50,7 @@
     @if($horse->isDeleted == 0 && $horse->isInactive == 0)
         <div class="row">
             <div class="col"><a href="/horses/{{ $horse->id }}" class="link">{{ $horse->name }}</a></div>
+            <div class="col">{{ $horse->gender }}</div>
             <div class="col">{{ $horse->color }}</div>
             <div class="col">{{ $horse->markings }}</div>
         </div>

@@ -18,6 +18,13 @@ class CreateHorsesTable extends Migration
             $table->string('name');
             $table->string('color');
             $table->string('markings')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('saddle')->nullable();
+            $table->string('bridle')->nullable();
+            $table->string('girth')->nullable();
+            $table->string('miscTack')->nullable();
+            $table->string('pasture')->nullable();
+            $table->string('stall')->nullable();
             $table->binary('mainImg')->nullable();
             $table->binary('secondImg')->nullable();
             $table->binary('thirdImg')->nullable();

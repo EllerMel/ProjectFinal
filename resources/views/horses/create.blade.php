@@ -12,12 +12,16 @@
                 <div class="col">
                     <label>Name</label>
                 </div>
-                <div class="col center">
+                <div class="col">
+                    <label>Gender</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" name="name" placeholder="Horse name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="gender" placeholder="Gender">
                 </div>
             </div>
             <br>
@@ -39,6 +43,61 @@
                 </div>
             </div>
             <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Saddle</label>
+                </div>
+                <div class="col">
+                    <label>Bridle</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="saddle" placeholder="Saddle">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="bridle" placeholder="Bridle">
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Girth</label>
+                </div>
+                <div class="col">
+                    <label>Misc Tack</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="girth" placeholder="Girth">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="miscTack" placeholder="Miscellaneous: Riser Pad, crop, etc.">
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <label>Pasture</label>
+                </div>
+                <div class="col">
+                    <label>Stall</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="pasture" placeholder="Pasture">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="stall" placeholder="Stall">
+                </div>
+            </div>
+            <br>
+
             <div class="row">
                 <div class="col">
                 <label>Main Image</label>

@@ -12,8 +12,15 @@ class HorseSeeder extends Seeder
     public function run()
     {
         \App\Horse::create([
-            'name' => 'Stormy',
+            'name' => "Stormy",
             'color' => "Grey",
+            'gender' => "Gelding",
+            'saddle' => "Lesson Saddle - Low rise",
+            'bridle' => "Labeled Bridle",
+            'girth' => "52",
+            'miscTack' => "Riser Pad",
+            'pasture' => "Geldings Field",
+            'stall' => "n/a",
             'mainImg' => "images/HkLMMN8gt7YEQNqNfw0v21wwYX07qJS0hxr221yz.jpeg",
             'secondImg' => "images/Ztwv8axpkvIQlhjqtufQe27ZabyUEImzqP0Kqby4.jpeg",
             'thirdImg' => "images/vkBN1FDle0THMmEmNy0AkMjh6Gq2Z2GTwm3tSEw8.jpeg",

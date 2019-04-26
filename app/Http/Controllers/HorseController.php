@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Horse;
-use App\Tack;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +29,6 @@ class HorseController extends Controller
      */
     public function create()
     {
-        //$saddles = Tack::where('type', 'Saddles')->orderBy('description')->lists('value', 'description');
 
         return view('horses.create');
     }
@@ -48,6 +46,13 @@ class HorseController extends Controller
         $horse->name = request('name');
         $horse->color = request('color');
         $horse->markings = request('markings');
+        $horse->gender = request('gender');
+        $horse->saddle = request('saddle');
+        $horse->bridle = request('bridle');
+        $horse->girth = request('girth');
+        $horse->miscTack = request('miscTack');
+        $horse->pasture = request('pasture');
+        $horse->stall = request('stall');
         
         if($request->hasFile('mainImg')) {
             $path = $request->file('mainImg')->store('images');
@@ -112,10 +117,18 @@ class HorseController extends Controller
         $horse = Horse::findOrFail($id);
 
         $horse->name = request('name');
-        $horse->isInactive = !$horse->isInactive;
+
+        $horse->isInactive = (isset($_POST['isInactive']) ? 1 : 0);
         
         $horse->color = request('color');
         $horse->markings = request('markings');
+        $horse->gender = request('gender');
+        $horse->saddle = request('saddle');
+        $horse->bridle = request('bridle');
+        $horse->girth = request('girth');
+        $horse->miscTack = request('miscTack');
+        $horse->pasture = request('pasture');
+        $horse->stall = request('stall');
 
         if($request->hasFile('mainImg')) {
             $path = $request->file('mainImg')->store('images');

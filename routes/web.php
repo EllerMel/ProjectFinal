@@ -41,5 +41,3 @@ Route::resource('individuals', 'IndividualController');
 Route::get('individuals/{individual}', 'IndividualController@show')->name('individual.show');
 
 Route::resource('farm', 'FarmController');
-
-Route::resource('tack', 'TackController');

@@ -32,14 +32,6 @@
                                 <a href="/horses" class="btn btn-menu">Horses</a>
                             </div>
                             <div class="col">
-                                <a href="/tack" class="btn btn-menu">Tack</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="btn btn-menu">Pastures/Rings</button>
-                            </div>
-                            <div class="col">
                                 <a href="/farm" class="btn btn-menu">Farm Info</a>
                             </div>
                         </div>

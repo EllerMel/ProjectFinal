@@ -15,5 +15,10 @@ class IndivSeeder extends Seeder
             'displayName' => 'Mo',
             'user_id' => "1"
         ]);
+
+        \App\Individual::create([
+            'displayName' => 'Lyss',
+            'user_id' => "2"
+        ]);
     }
 }

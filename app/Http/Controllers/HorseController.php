@@ -29,6 +29,8 @@ class HorseController extends Controller
      */
     public function create()
     {
+        // $saddles = Tack::where('type', 'Saddles')->orderBy('description')->lists('description');
+
         return view('horses.create');
     }
 
@@ -117,6 +119,21 @@ class HorseController extends Controller
             $horse->mainImg = $path;
         }
 
+        if($request->hasFile('secondImg')) {
+            $path = $request->file('secondImg')->store('images');
+            $horse->secondImg = $path;
+        }
+
+        if($request->hasFile('thirdImg')) {
+            $path = $request->file('thirdImg')->store('images');
+            $horse->thirdImg = $path;
+        }
+
+        if($request->hasFile('fourthImg')) {
+            $path = $request->file('fourthImg')->store('images');
+            $horse->fourthImg = $path;
+        }
+
         $horse->save();
 
         return redirect('/horses');
@@ -130,7 +147,9 @@ class HorseController extends Controller
      */
     public function destroy($id)
     {
-        Horse::findOrFail($id)->isDeleted = 1;
+        $horse = Horse::findOrFail($id);
+        $horse->isDeleted = 1;
+        $horse->save();
 
         return redirect('/horses');
     }

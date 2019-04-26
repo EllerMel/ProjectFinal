@@ -22,6 +22,7 @@
         </div>
 
     @foreach($horses as $horse)
+    @if($horse->isDeleted == 0)
         <div class="row">
             <div class="col"><a href="/horses/{{ $horse->id }}" class="link">{{ $horse->name }}</a></div>
             <div class="col">{{ $horse->color }}</div>
@@ -32,6 +33,7 @@
             <div class="col"></div>
             @endif
         </div>
+        @endif
     @endforeach
 </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Horse;
+use App\Tack;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,7 @@ class HorseController extends Controller
      */
     public function create()
     {
-        // $saddles = Tack::where('type', 'Saddles')->orderBy('description')->lists('description');
+        //$saddles = Tack::where('type', 'Saddles')->orderBy('description')->lists('value', 'description');
 
         return view('horses.create');
     }
@@ -111,6 +112,8 @@ class HorseController extends Controller
         $horse = Horse::findOrFail($id);
 
         $horse->name = request('name');
+        $horse->isInactive = !$horse->isInactive;
+        
         $horse->color = request('color');
         $horse->markings = request('markings');
 

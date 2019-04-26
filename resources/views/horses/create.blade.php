@@ -19,10 +19,6 @@
                 <div class="col">
                     <input type="text" class="form-control" name="name" placeholder="Horse name">
                 </div>
-                <div class="col center">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Inactive</label>
-                </div>
             </div>
             <br>
 
@@ -81,8 +77,20 @@
                 </div>
             </div>
             <br>
-            <div>
-                <button type="submit"class="btn btn-purple btn-main">Add Horse</button>
+            <div class="row">
+            <div class="col">
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="btn btn-purple btn-main">Add Horse</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="field">
+                    <div class="control">
+                        <a href="/horses" class="btn btn-secondary btn-main">Cancel</a>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
 
         \App\User::create([
             'name' => 'Lyss',
-            'email' => 'Lyssandra5@gmail.com',
+            'email' => 'Lyssandra5@yahoo.com',
             'email_verified_at' => now(),
             'password' => bcrypt('newnewnew'),
             'admin' => 0,

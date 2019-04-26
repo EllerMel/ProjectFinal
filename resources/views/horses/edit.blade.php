@@ -22,8 +22,11 @@
                     <input type="text" class="form-control" name="name" placeholder="Horse name" value="{{ $horse->name }}">
                 </div>
                 <div class="col center">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Inactive</label>
+                    <input class="form-check-input" type="checkbox" value="{{ $horse->isInactive }}" id="{{ $horse->id }}"
+                    @if($horse->isInactive) checked="checked" @endif >
+
+                    <label class="form-check-label">Inactive</label>
+                    
                 </div>
             </div>
             <br>

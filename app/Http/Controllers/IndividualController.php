@@ -76,6 +76,8 @@ class IndividualController extends Controller
     {
         $individual = Individual::findOrFail($id);
 
+        $individual->isInstructor = (isset($_POST['isInstructor']) ? 1 : 0);
+
         $individual->displayName = request('displayName');
         $individual->phoneNumber= request('phoneNumber');
         $individual->emergencyContact= request('emergencyContact');

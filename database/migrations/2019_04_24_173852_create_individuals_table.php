@@ -19,6 +19,7 @@ class CreateIndividualsTable extends Migration
             $table->string('phoneNumber')->nullable();
             $table->string('emergencyContact')->nullable();
             $table->string('emergencyPhone')->nullable();
+            $table->boolean('isInstructor')->default(0);
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 

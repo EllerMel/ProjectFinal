@@ -10,6 +10,18 @@
 
         <br>
         <div class="form-group">
+            @if (Auth::user()->admin == 1)
+            <div class="row">
+                <div class="col"></div>
+                <div class="col center">
+                    <input class="form-check-input" type="checkbox" name="isInstructor" value="{{ $individual->isInstructor }}" id="{{ $individual->id }}"
+                        @if($individual->isInstructor) checked="checked" @endif >
+
+                        <label class="form-check-label">Is an Instructor</label>
+                </div>
+            </div>
+            @endif
+            <br>
             <div class="row">
                 <div class="col">
                     <label>Display Name</label>

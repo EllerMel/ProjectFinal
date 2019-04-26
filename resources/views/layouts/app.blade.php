@@ -57,6 +57,9 @@
                             <a class="nav-link" href="/home">Dashboard</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/farm">Farm</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/horses">Horses</a>
                         </li>
                         <li class="nav-item">

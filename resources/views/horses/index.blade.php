@@ -12,6 +12,7 @@
     @endif
     </div>
 
+    <p>Click on name to view horse</p>
     <br>
 
     @if (Auth::user()->admin == 1)

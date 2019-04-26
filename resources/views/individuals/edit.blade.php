@@ -69,7 +69,7 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
-                        <a href="/individuals" class="btn btn-secondary btn-main">Cancel</a>
+                        <a href="/individuals/{{ $individual->id }}" class="btn btn-secondary btn-main">Cancel</a>
                     </div>
                 </div>
             </div>

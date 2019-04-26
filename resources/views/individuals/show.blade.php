@@ -7,28 +7,23 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-xs">Display Name:</div>
-            <div class="col">{{ $individual->displayName }}</div>
+            <div class="col-xs"><h5><strong>Phone Number</strong></h5></div>
+            <div class="col"><h5>{{ $individual->phoneNumber }}</h5></div>
         </div>
         <br>
         <div class="row">
-            <div class="col-xs">Phone Number</div>
-            <div class="col">{{ $individual->phoneNumber }}</div>
+            <div class="col-xs"><h5><strong>Emergency Contact</strong></h5></div>
+            <div class="col"><h5>{{ $individual->emergencyContact }}</h5></div>
         </div>
         <br>
         <div class="row">
-            <div class="col-xs">Emergency Contact</div>
-            <div class="col">{{ $individual->emergencyContact }}</div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-xs">Emergency Phone</div>
-            <div class="col">{{ $individual->emergencyPhone }}</div>
+            <div class="col-xs"><h5><strong>Emergency Phone</strong></h5></div>
+            <div class="col"><h5>{{ $individual->emergencyPhone }}</h5></div>
         </div>
     </div>
     <br>
     
-    <a href="/individuals/{{ $individual->id }}/edit" class="btn btn-grey btn-sm">Edit</a>
+    <a href="/individuals/{{ $individual->id }}/edit" class="btn btn-secondary btn-main">Edit</a>
 </div>
 
 @endsection

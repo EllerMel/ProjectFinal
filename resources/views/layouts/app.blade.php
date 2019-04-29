@@ -53,7 +53,7 @@
                             <a class="nav-link" href="/individuals">Individuals</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/schedules">Schedule</a>
+                            <a class="nav-link" href="/lessons">Lessons</a>
                         </li>
                         @else
                         <li class="nav-item">
@@ -72,7 +72,7 @@
                             <a href="/individuals/{{ $individual->id }} " class="nav-link">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/schedules">Schedule</a>
+                            <a class="nav-link" href="/lessons">Lessons</a>
                         </li>
                         @endguest
                     </ul>

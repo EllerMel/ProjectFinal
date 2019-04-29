@@ -42,4 +42,4 @@ Route::get('individuals/{individual}', 'IndividualController@show')->name('indiv
 
 Route::resource('farm', 'FarmController');
 
-Route::resource('schedules', 'ScheduleController');
+Route::resource('lessons', 'LessonController');

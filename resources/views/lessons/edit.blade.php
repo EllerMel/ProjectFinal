@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="title">Edit Lesson</h1>
 
-    <form method="POST" action="/schedules/{{ $schedule->id }}">
+    <form method="POST" action="/lessons/{{ $lesson->id }}">
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
 
@@ -13,8 +13,8 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col center">
-                    <input class="form-check-input" type="checkbox" name="isCanceled" value="{{ $schedule->isCanceled }}" id="{{ $schedule->id }}"
-                        @if($schedule->isCanceled) checked="checked" @endif >
+                    <input class="form-check-input" type="checkbox" name="isCanceled" value="{{ $lesson->isCanceled }}" id="{{ $lesson->id }}"
+                        @if($lesson->isCanceled) checked="checked" @endif >
 
                         <label class="form-check-label">Cancel Lesson</label>
                 </div>
@@ -31,10 +31,10 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="date" class="form-control" name="lessonDate" placeholder="Date" value="{{ $schedule->lessonDate }}">
+                    <input type="date" class="form-control" name="lessonDate" placeholder="Date" value="{{ $lesson->lessonDate }}">
                 </div>
                 <div class="col">
-                    <input type="time" class="form-control" name="lessonTime" placeholder="Time" value="{{ $schedule->lessonTime }}">
+                    <input type="time" class="form-control" name="lessonTime" placeholder="Time" value="{{ $lesson->lessonTime }}">
                 </div>
             </div>
             <br>
@@ -52,7 +52,7 @@
                     <select class="form-control" type="text" name="studentID" class="input">
                         <?php $students = \App\Individual::where('isInstructor', '0')->get(); ?>
                         <?php foreach ($students as $student){
-                            if($schedule->studentID == $student->id){
+                            if($lesson->studentID == $student->id){
                                 ?><option selected value=" {{ $student->id }}">{{ $student->displayName }}</option>
                                 <?php
                             } else {
@@ -67,7 +67,7 @@
                     <select class="form-control" type="text" name="horseID" class="input">
                         <?php $horses = \App\Horse::where('isInactive', '0')->where('isDeleted', '0')->get(); ?>
                         <?php foreach ($horses as $horse){
-                            if($schedule->horseID == $horse->id){
+                            if($lesson->horseID == $horse->id){
                                 ?><option selected value=" {{ $horse->id }}">{{ $horse->name }}</option>
                                 <?php
                             } else {
@@ -91,13 +91,13 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="location" placeholder="Location" value="{{ $schedule->location }}">
+                    <input type="text" class="form-control" name="location" placeholder="Location" value="{{ $lesson->location }}">
                 </div>
                 <div class="col">
                     <select class="form-control" type="text" name="instructorID" class="input">
                         <?php $instructors = \App\Individual::where('isInstructor', '1')->get(); ?>
                         <?php foreach ($instructors as $instructor){
-                            if($schedule->instructorID == $instructor->id){
+                            if($lesson->instructorID == $instructor->id){
                                 ?><option selected value=" {{ $instructor->id }}">{{ $instructor->displayName }}</option>
                                 <?php
                             } else {
@@ -121,7 +121,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="notes" placeholder="Notes">
+                    <input type="text" class="form-control" name="notes" placeholder="Notes" value="{{ $lesson->notes }}">
                 </div>
             </div>
             <br>
@@ -137,7 +137,7 @@
                 <div class="col">
                     <div class="field">
                         <div class="control">
-                            <a href="/schedule" class="btn btn-secondary btn-main">Cancel</a>
+                            <a href="/lessons" class="btn btn-secondary btn-main">Cancel</a>
                         </div>
                     </div>
                 </div>

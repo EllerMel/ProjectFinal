@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Schedule extends Model
+class Lesson extends Model
 {
     public function student(){
         return $this->belongsTo('App\Individual', 'studentID', 'id');

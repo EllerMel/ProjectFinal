@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Add a Lesson</h1>
 
-        <form method="POST" action="/schedules">
+        <form method="POST" action="/lessons">
         {{ csrf_field() }}
             
         <br>
@@ -109,7 +109,7 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
-                        <a href="/schedules" class="btn btn-secondary btn-main">Cancel</a>
+                        <a href="/lessons" class="btn btn-secondary btn-main">Cancel</a>
                     </div>
                 </div>
             </div>

@@ -52,6 +52,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/individuals">Individuals</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/schedules">Schedule</a>
+                        </li>
                         @else
                         <li class="nav-item">
                             <a class="nav-link" href="/home">Dashboard</a>
@@ -67,6 +70,9 @@
                                 $individual = Auth::user()->individual;
                             ?>
                             <a href="/individuals/{{ $individual->id }} " class="nav-link">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/schedules">Schedule</a>
                         </li>
                         @endguest
                     </ul>

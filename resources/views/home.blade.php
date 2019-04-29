@@ -24,7 +24,7 @@
                                 <a href="/individuals" class="btn btn-menu">Individuals</a>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Schedule</button>
+                                <a href="/schedules" class="btn btn-menu">Schedule</a>
                             </div>
                         </div>
                         <div class="row">
@@ -43,7 +43,7 @@
                                 <a href="/horses" class="btn btn-menu">Horses</a>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-menu">Schedule</button>
+                                <a href="/schedules" class="btn btn-menu">Schedule</a>
                             </div> 
                         </div>
                         <div class="row">

@@ -24,6 +24,7 @@
             <div class="col center"><strong>Inactive</strong></div>
             <div class="col"><strong></strong></div>        
         </div>
+        <br>
     @foreach($horses as $horse)
     @if($horse->isDeleted == 0)
         <div class="row">

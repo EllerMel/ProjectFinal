@@ -18,10 +18,20 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="name" placeholder="Horse name">
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Horse name">
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="gender" placeholder="Gender">
+                    <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" autofocus placeholder="Gender">
+                    @error('gender')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
             <br>
@@ -36,7 +46,12 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="color" placeholder="Horse color">
+                    <input id="color" type="text" class="form-control @error('color') is-invalid @enderror" name="color" value="{{ old('color') }}" required autocomplete="color" autofocus placeholder="Color">
+                    @error('color')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" name="markings" placeholder="Horse markings">

@@ -31,10 +31,21 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="name" placeholder="Horse name" value="{{ $horse->name }}">
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $horse->name }}" required autocomplete="name" autofocus placeholder="Horse name">
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="gender" placeholder="Gender" value="{{ $horse->gender }}">
+                    <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ $horse->gender }}" required autocomplete="gender" autofocus placeholder="Gender">
+                    @error('gender')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
                 </div>
             </div>
             <br>
@@ -49,7 +60,12 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="color" placeholder="Horse color" value="{{ $horse->color }}">
+                    <input id="color" type="text" class="form-control @error('color') is-invalid @enderror" name="color" value="{{ $horse->color }}" required autocomplete="color" autofocus placeholder="Color">
+                    @error('color')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" name="markings" placeholder="Horse markings" value="{{ $horse->markings }}">

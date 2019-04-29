@@ -13,8 +13,8 @@ class HorseSeeder extends Seeder
     {
         \App\Horse::create([
             'name' => "Stormy",
-            'color' => "Grey",
             'gender' => "Gelding",
+            'color' => "Grey",
             'saddle' => "Lesson Saddle - Low rise",
             'bridle' => "Labeled Bridle",
             'girth' => "52",

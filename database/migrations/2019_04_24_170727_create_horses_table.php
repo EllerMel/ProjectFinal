@@ -16,9 +16,9 @@ class CreateHorsesTable extends Migration
         Schema::create('horses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('gender');
             $table->string('color');
             $table->string('markings')->nullable();
-            $table->string('gender')->nullable();
             $table->string('saddle')->nullable();
             $table->string('bridle')->nullable();
             $table->string('girth')->nullable();

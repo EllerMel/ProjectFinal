@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+<div class="center" ><curr-date></curr-date></div>
+<br>
 
     @if (Auth::user()->admin == 1)
         <div class="row">

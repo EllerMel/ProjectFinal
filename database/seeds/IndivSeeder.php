@@ -18,11 +18,25 @@ class IndivSeeder extends Seeder
         ]);
 
         \App\Individual::create([
-            'displayName' => 'Lyss',
+            'displayName' => 'Mel',
             'user_id' => "2",
+            'isInstructor' => "1"
+        ]);
+
+        \App\Individual::create([
+            'displayName' => 'Lyss',
+            'user_id' => "3",
             'phoneNumber' => '555-555-5555',
             'emergencyContact' => 'Father',
             'emergencyPhone' => '444-444-4444'
+        ]);
+
+        \App\Individual::create([
+            'displayName' => 'Steph',
+            'user_id' => "4",
+            'phoneNumber' => '333-333-3333',
+            'emergencyContact' => 'Mother',
+            'emergencyPhone' => '222-222-2222'
         ]);
     }
 }

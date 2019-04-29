@@ -36,10 +36,24 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="studentID" placeholder="Student">
+                    <select class="form-control" type="text" name="studentID"  class="input">
+                    <?php $students = \App\Individual::where('isInstructor', '0')->get(); ?>
+                    <?php foreach ($students as $student){
+                        ?>
+                        <option value="<?php echo $student->id; ?>"><?php echo $student->displayName; ?></option>
+                        <?php
+                    }?>
+                    </select>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="horseID" placeholder="Horse">
+                <select class="form-control" type="text" name="horseID"  class="input">
+                    <?php $horses = \App\Horse::where('isInactive', '0')->where('isDeleted', '0')->get(); ?>
+                    <?php foreach ($horses as $horse){
+                        ?>
+                        <option value="<?php echo $horse->id; ?>"><?php echo $horse->name; ?></option>
+                        <?php
+                    }?>
+                    </select>
                 </div>
             </div>
             <br>
@@ -57,7 +71,14 @@
                     <input type="text" class="form-control" name="location" placeholder="Location">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="instructorID" placeholder="Instructor">
+                    <select class="form-control" type="text" name="instructorID"  class="input">
+                    <?php $instructors = \App\Individual::where('isInstructor', '1')->get();; ?>
+                    <?php foreach ($instructors as $instructor){
+                        ?>
+                        <option value="<?php echo $instructor->id; ?>"><?php echo $instructor->displayName; ?></option>
+                        <?php
+                    }?>
+                    </select>
                 </div>
             </div>
             <br>

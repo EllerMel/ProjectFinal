@@ -49,10 +49,34 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="studentID" placeholder="Student" value="{{ $schedule->studentID }}">
+                    <select class="form-control" type="text" name="studentID" class="input">
+                        <?php $students = \App\Individual::where('isInstructor', '0')->get(); ?>
+                        <?php foreach ($students as $student){
+                            if($schedule->studentID == $student->id){
+                                ?><option selected value=" {{ $student->id }}">{{ $student->displayName }}</option>
+                                <?php
+                            } else {
+                            ?>
+                            <option value="<?php echo $student->id; ?>"><?php echo $student->displayName; ?></option>
+                            <?php
+                            }
+                        }?>
+                    </select>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="horseID" placeholder="Horse" value="{{ $schedule->horseID }}">
+                    <select class="form-control" type="text" name="horseID" class="input">
+                        <?php $horses = \App\Horse::where('isInactive', '0')->where('isDeleted', '0')->get(); ?>
+                        <?php foreach ($horses as $horse){
+                            if($schedule->horseID == $horse->id){
+                                ?><option selected value=" {{ $horse->id }}">{{ $horse->name }}</option>
+                                <?php
+                            } else {
+                            ?>
+                            <option value="<?php echo $horse->id; ?>"><?php echo $horse->name; ?></option>
+                            <?php
+                            }
+                        }?>
+                    </select>
                 </div>
             </div>
             <br>
@@ -70,7 +94,19 @@
                     <input type="text" class="form-control" name="location" placeholder="Location" value="{{ $schedule->location }}">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="instructorID" placeholder="Instructor" value="{{ $schedule->instructorID }}">
+                    <select class="form-control" type="text" name="instructorID" class="input">
+                        <?php $instructors = \App\Individual::where('isInstructor', '1')->get(); ?>
+                        <?php foreach ($instructors as $instructor){
+                            if($schedule->instructorID == $instructor->id){
+                                ?><option selected value=" {{ $instructor->id }}">{{ $instructor->displayName }}</option>
+                                <?php
+                            } else {
+                            ?>
+                            <option value="<?php echo $instructor->id; ?>"><?php echo $instructor->displayName; ?></option>
+                            <?php
+                            }
+                        }?>
+                    </select>
                 </div>
             </div>
             <br>

@@ -21,8 +21,26 @@ class AdminSeeder extends Seeder
         ]);
 
         \App\User::create([
+            'name' => 'Mel',
+            'email' => 'EllerMel5@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('newnewnew'),
+            'admin' => 1,
+            'approved_at' => now(),
+        ]);
+
+        \App\User::create([
             'name' => 'Lyss',
             'email' => 'Lyssandra5@yahoo.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('newnewnew'),
+            'admin' => 0,
+            'approved_at' => now(),
+        ]);
+
+        \App\User::create([
+            'name' => 'Steph',
+            'email' => 'Steph@gmail.com',
             'email_verified_at' => now(),
             'password' => bcrypt('newnewnew'),
             'admin' => 0,

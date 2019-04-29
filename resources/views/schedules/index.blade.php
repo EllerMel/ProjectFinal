@@ -25,10 +25,10 @@
         <div class="row">
             <div class="col">{{ $schedule->lessonDate }}</div>
             <div class="col">{{ $schedule->lessonTime }}</div>
-            <div class="col">{{ $schedule->studentID }}</div>
-            <div class="col">{{ $schedule->horseID }}</div>
+            <div class="col">{{ $schedule->student->displayName }}</div>
+            <div class="col">{{ $schedule->horse->name }}</div>
             <div class="col">{{ $schedule->location }}</div>
-            <div class="col">{{ $schedule->instructorID }}</div>
+            <div class="col">{{ $schedule->instructor->displayName }}</div>
             <div class="col center">
                 <input class="form-check-input" type="checkbox" value="{{ $schedule->isCanceled }}" id="{{ $schedule->id }}" disabled
                     @if($schedule->isCanceled) checked="checked" @endif >

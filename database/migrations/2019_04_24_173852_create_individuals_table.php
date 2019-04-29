@@ -20,7 +20,7 @@ class CreateIndividualsTable extends Migration
             $table->string('emergencyContact')->nullable();
             $table->string('emergencyPhone')->nullable();
             $table->boolean('isInstructor')->default(0);
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

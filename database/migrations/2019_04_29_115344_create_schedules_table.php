@@ -17,10 +17,10 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
             $table->date('lessonDate');
             $table->time('lessonTime');
-            $table->integer('studentID')->unsigned();
-            $table->integer('horseID')->unsigned();
+            $table->unsignedBigInteger('studentID');
+            $table->unsignedBigInteger('horseID');
             $table->string('location');
-            $table->integer('instructorID')->unsigned();
+            $table->unsignedBigInteger('instructorID');
             $table->string('notes')->nullable();
             $table->boolean('isCanceled')->default(0);
             $table->timestamps();

@@ -6,6 +6,8 @@
     @if (Auth::user()->admin == 1)
         <h1>Individuals</h1>
         <br>
+        <p>Click on name to view profile</p>
+        <br>
         <div class="row">
             <div class="col"><strong>Display Name</strong></div>
             <div class="col"><strong>Phone Number</strong></div>
@@ -16,7 +18,7 @@
 
     @foreach($individuals as $individual)
         <div class="row">
-            <div class="col">{{ $individual->displayName }}</div>
+            <div class="col"><a href="/individuals/{{ $individual->id }}" class="link">{{ $individual->displayName }}</a></div>
             <div class="col">{{ $individual->phoneNumber }}</div>
             <div class="col">{{ $individual->emergencyContact }}</div>
             <div class="col">{{ $individual->emergencyPhone }}</div>

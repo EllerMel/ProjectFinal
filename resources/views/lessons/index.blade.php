@@ -48,18 +48,23 @@
             <div class="col"><strong>Horse</strong></div>
             <div class="col"><strong>Location</strong></div>
             <div class="col"><strong>Instructor</strong></div>
-            <div class="col"><strong>Status</strong></div>
             <div class="col"></div> 
         </div>
         @foreach($lessons as $lesson)
+        @if(Auth::user()->individual->id == $lesson->studentID)
         <div class="row">
             <div class="col">{{ $lesson->lessonDate }}</div>
             <div class="col">{{ $lesson->lessonTime }}</div>
-            <div class="col">{{ $lesson->horseID }}</div>
+            <div class="col">{{ $lesson->horse->name }}</div>
             <div class="col">{{ $lesson->location }}</div>
-            <div class="col">{{ $lesson->instructorID }}</div>
-            <div class="col">{{ $lesson->isCanceled }}</div>
+            <div class="col">{{ $lesson->instructor->displayName }}</div>
+            @if($lesson->isCanceled == 1)
+            <div class="col">CANCELLED</div>
+            @else
+            <div class="col"></div> 
+            @endif
         </div>
+        @endif
     @endforeach
     @endif
     </div>

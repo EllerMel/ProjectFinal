@@ -32,7 +32,12 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="displayName" placeholder="Name" value="{{ $individual->displayName }}">
+                    <input id="displayName" type="text" class="form-control @error('displayName') is-invalid @enderror" name="displayName" value="{{ $individual->displayName }}" required autocomplete="name" autofocus placeholder="Name">
+                    @error('displayName')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" value="{{ $individual->phoneNumber }}">

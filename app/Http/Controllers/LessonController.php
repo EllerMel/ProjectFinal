@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lesson;
+use Auth;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -26,7 +27,13 @@ class LessonController extends Controller
      */
     public function create()
     {
-        return view('lessons.create');
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            return view('lessons.create');
+        } else {
+            return redirect('/lessons');
+        }
     }
 
     /**
@@ -73,9 +80,14 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
-        $lesson = Lesson::findOrFail($id);
-
-        return view('lessons.edit', compact('lesson'));
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            $lesson = Lesson::findOrFail($id);
+            return view('lessons.edit', compact('lesson'));
+        } else {
+            return redirect('/lessons');
+        }
     }
 
     /**

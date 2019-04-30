@@ -47,9 +47,17 @@ class IndividualController extends Controller
      * @param  \App\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function show(Individual $individual)
+    public function show($id)
     {
-        return view('individuals.show', compact('individual'));
+        $user = Auth::user();
+        
+        if ($user->admin || $user->individual->id == $id)
+        {
+            $individual = Individual::findOrFail($id);
+            return view('individuals.show', compact('individual'));
+        } else{
+            return redirect('/home');
+        }
     }
 
     /**
@@ -60,9 +68,15 @@ class IndividualController extends Controller
      */
     public function edit($id)
     {
-        $individual = Individual::findOrFail($id);
-
-        return view('individuals.edit', compact('individual'));
+        $user = Auth::user();
+        
+        if ($user->admin || $user->individual->id == $id)
+        {
+            $individual = Individual::findOrFail($id);
+            return view('individuals.edit', compact('individual'));
+        } else{
+                return redirect('/home');
+            }
     }
 
     /**

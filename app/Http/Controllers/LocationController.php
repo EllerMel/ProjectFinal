@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Location;
+use Auth;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
@@ -14,9 +15,15 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::all();
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            $locations = Location::all();
 
-        return view('locations.index', compact('locations'));
+            return view('locations.index', compact('locations'));
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**
@@ -26,7 +33,13 @@ class LocationController extends Controller
      */
     public function create()
     {
-        return view('locations.create');
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            return view('locations.create');
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**
@@ -68,9 +81,14 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        $location = Location::findOrFail($id);
-
-        return view('locations.edit', compact('location'));
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            $location = Location::findOrFail($id);
+            return view('locations.edit', compact('location'));
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**

@@ -29,8 +29,14 @@ class HorseController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            return view('horses.create');
 
-        return view('horses.create');
+        } else {
+            return redirect('/horses');
+        }
     }
 
     /**
@@ -100,9 +106,15 @@ class HorseController extends Controller
      */
     public function edit($id)
     {
-        $horse = Horse::findOrFail($id);
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            $horse = Horse::findOrFail($id);
+            return view('horses.edit', compact('horse'));
 
-        return view('horses.edit', compact('horse'));
+        } else {
+            return redirect('/horses');
+        }
     }
 
     /**

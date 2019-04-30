@@ -29,7 +29,14 @@ class FarmController extends Controller
      */
     public function create()
     {
-        return view('farms.create');
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            return view('farms.create');
+
+        } else {
+            return redirect('/farm');
+        }
     }
 
     /**
@@ -96,9 +103,15 @@ class FarmController extends Controller
      */
     public function edit($id)
     {
-        $farm = Farm::findOrFail($id);
+        $user = Auth::user();
+        if ($user->admin)
+        {
+            $farm = Farm::findOrFail($id);
+            return view('farms.edit', compact('farm'));
 
-        return view('farms.edit', compact('farm'));
+        } else {
+            return redirect('/farm');
+        }
     }
 
     /**

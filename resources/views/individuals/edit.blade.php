@@ -74,7 +74,11 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
+                    @if (Auth::user()->admin == 1)
+                        <a href="/individuals" class="btn btn-secondary btn-main">Cancel</a>
+                    @else
                         <a href="/individuals/{{ $individual->id }}" class="btn btn-secondary btn-main">Cancel</a>
+                    @endif
                     </div>
                 </div>
             </div>

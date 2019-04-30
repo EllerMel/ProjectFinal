@@ -5,6 +5,8 @@
 
     <h1>Lesson</h1>
     <br>
+    <p>Click on horse name to view details</p>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-xs"><h4><strong>Date:</strong></h4></div>
@@ -21,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-xs"><h4><strong>Horse:</strong></h4></div>
-            <div class="col"><h4>{{ $lesson->horse->name }}</h4></div>
+            <div class="col"><a href="/horses/{{ $lesson->horseID }}" class="link"><h4>{{ $lesson->horse->name }}</h4></a></div>
         </div>
         <br>
         <div class="row">

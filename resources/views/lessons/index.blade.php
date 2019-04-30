@@ -4,7 +4,6 @@
 <div class="container">
 <div class="center" ><curr-date></curr-date></div>
 <br>
-
     @if (Auth::user()->admin == 1)
         <div class="row">
             <div class="col"><h1>Lessons</h1></div>
@@ -14,7 +13,7 @@
         <br>
         <p>Click on date to view lesson</p>
         <br>
-        <div class="row">
+        <div class="row top">
             <div class="col"><strong>Date</strong></div>
             <div class="col"><strong>Time</strong></div>
             <div class="col"><strong>Student</strong></div>
@@ -26,7 +25,7 @@
         </div>
 
     @foreach($lessons as $lesson)
-        <div class="row">
+        <div class="row odd">
             <div class="col"><a href="/lessons/{{ $lesson->id }}" class="link">{{ $lesson->lessonDate }}</a></div>
             <div class="col">{{ $lesson->lessonTime }}</div>
             <div class="col">{{ $lesson->student->displayName }}</div>
@@ -46,7 +45,7 @@
         <br>
         <p>Click on date to view lesson</p>
         <br>
-        <div class="row">
+        <div class="row top">
             <div class="col"><strong>Date</strong></div>
             <div class="col"><strong>Time</strong></div>
             <div class="col"><strong>Horse</strong></div>
@@ -56,7 +55,7 @@
         </div>
         @foreach($lessons as $lesson)
         @if(Auth::user()->individual->id == $lesson->studentID)
-        <div class="row">
+        <div class="row odd">
             <div class="col"><a href="/lessons/{{ $lesson->id }}" class="link">{{ $lesson->lessonDate }}</a></div>
             <div class="col">{{ $lesson->lessonTime }}</div>
             <div class="col">{{ $lesson->horse->name }}</div>

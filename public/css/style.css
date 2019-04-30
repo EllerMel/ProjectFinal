@@ -30,6 +30,7 @@
     border: none;
     color: white;
     margin-top:5px;
+    margin-bottom:5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -51,6 +52,18 @@
 
 h1 {
     color:  rgba(102, 22, 102, 0.842);
+}
+
+.top{
+    background: rgb(221, 221, 221)
+}
+
+.even:nth-child(even){
+    background: rgba(221, 221, 221, 0.555)
+}
+
+.odd:nth-child(odd){
+    background: rgba(221, 221, 221, 0.555)
 }
 
 @media only screen and (max-width: 900px) {

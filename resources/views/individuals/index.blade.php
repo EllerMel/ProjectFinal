@@ -2,13 +2,12 @@
 
 @section('content')
 <div class="container">
-
     @if (Auth::user()->admin == 1)
         <h1>Individuals</h1>
         <br>
         <p>Click on name to view profile</p>
         <br>
-        <div class="row">
+        <div class="row top">
             <div class="col"><strong>Name</strong></div>
             <div class="col"><strong>Phone</strong></div>
             <div class="col cell"><strong>Emergency Contact</strong></div>
@@ -17,7 +16,7 @@
         </div>
 
     @foreach($individuals as $individual)
-        <div class="row">
+        <div class="row odd">
             <div class="col"><a href="/individuals/{{ $individual->id }}" class="link">{{ $individual->displayName }}</a></div>
             <div class="col">{{ $individual->phoneNumber }}</div>
             <div class="col cell">{{ $individual->emergencyContact }}</div>
@@ -25,15 +24,7 @@
             <div class="col"><a href="/individuals/{{ $individual->id }}/edit" class="btn btn-grey btn-sm">Edit</a></div>
         </div>
     @endforeach
-    @else
-    <h1>Profile</h1>
-    <br>
-    <div class="row"></div>
     @endif
-    </div>
-
-
-
 </div>
 
 @endsection

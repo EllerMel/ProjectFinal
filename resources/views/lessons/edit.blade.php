@@ -91,7 +91,19 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="location" placeholder="Location" value="{{ $lesson->location }}">
+                    <select class="form-control" type="text" name="locationID"  class="input">
+                        <?php $locations = \App\Location::where('type', 'Arena')->where('isDeleted', '0')->get();; ?>
+                        <?php foreach ($locations as $location){
+                            if($lesson->locationID == $location->id){
+                                ?><option selected value=" {{ $location->id }}">{{ $location->description }}</option>
+                                <?php
+                            } else {
+                            ?>
+                            <option value="<?php echo $location->id; ?>"><?php echo $location->description; ?></option>
+                            <?php
+                            }
+                        }?>
+                    </select>
                 </div>
                 <div class="col">
                     <select class="form-control" type="text" name="instructorID" class="input">

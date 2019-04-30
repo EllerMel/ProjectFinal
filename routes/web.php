@@ -43,3 +43,5 @@ Route::get('individuals/{individual}', 'IndividualController@show')->name('indiv
 Route::resource('farm', 'FarmController');
 
 Route::resource('lessons', 'LessonController');
+
+Route::resource('locations', 'LocationController');

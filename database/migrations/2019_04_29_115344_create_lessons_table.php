@@ -19,7 +19,7 @@ class CreateLessonsTable extends Migration
             $table->time('lessonTime');
             $table->unsignedBigInteger('studentID');
             $table->unsignedBigInteger('horseID');
-            $table->string('location');
+            $table->unsignedBigInteger('locationID');
             $table->unsignedBigInteger('instructorID');
             $table->string('notes')->nullable();
             $table->boolean('isCanceled')->default(0);

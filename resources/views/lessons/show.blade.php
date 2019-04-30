@@ -28,7 +28,7 @@
         <br>
         <div class="row">
             <div class="col-xs"><h4><strong>Location:</strong></h4></div>
-            <div class="col"><h4>{{ $lesson->location }}</h4></div>
+            <div class="col"><h4>{{ $lesson->location->description }}</h4></div>
         </div>
         <div class="row">
             <div class="col-xs"><h4><strong>Instructor:</strong></h4></div>

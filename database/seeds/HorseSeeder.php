@@ -19,7 +19,7 @@ class HorseSeeder extends Seeder
             'bridle' => "Labeled Bridle",
             'girth' => "52",
             'miscTack' => "Riser Pad",
-            'pasture' => "Geldings Field",
+            'pastureID' => "1",
             'stall' => "n/a",
             'mainImg' => "images/HkLMMN8gt7YEQNqNfw0v21wwYX07qJS0hxr221yz.jpeg",
             'secondImg' => "images/Ztwv8axpkvIQlhjqtufQe27ZabyUEImzqP0Kqby4.jpeg",

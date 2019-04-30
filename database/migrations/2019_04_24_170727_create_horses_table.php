@@ -23,7 +23,7 @@ class CreateHorsesTable extends Migration
             $table->string('bridle')->nullable();
             $table->string('girth')->nullable();
             $table->string('miscTack')->nullable();
-            $table->string('pasture')->nullable();
+            $table->unsignedBigInteger('pastureID')->nullable();
             $table->string('stall')->nullable();
             $table->binary('mainImg')->nullable();
             $table->binary('secondImg')->nullable();

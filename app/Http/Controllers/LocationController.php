@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Location;
+use Illuminate\Http\Request;
+
+class LocationController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $locations = Location::all();
+
+        return view('locations.index', compact('locations'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('locations.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $location = new Location();
+
+        $location->type = request('type');
+        $location->description = request('description');
+        
+        $location->isDeleted = 0;
+
+        $location->save();
+
+        return redirect('/locations');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Location $location)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $location = Location::findOrFail($id);
+
+        return view('locations.edit', compact('location'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {
+        $location = Locaiton::findOrFail($id);
+
+        $location->decription = request('decription');
+
+        $location->save();
+
+        return redirect('/locations');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Location  $location
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $location = Location::findOrFail($id);
+        $location->isDeleted = 1;
+        $location->save();
+
+        return redirect('/locations');
+    }
+}

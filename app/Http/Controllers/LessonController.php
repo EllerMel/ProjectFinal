@@ -43,7 +43,7 @@ class LessonController extends Controller
         $lesson->lessonTime = request('lessonTime');
         $lesson->studentID = request('studentID');
         $lesson->horseID = request('horseID');
-        $lesson->location = request('location');
+        $lesson->locationID = request('locationID');
         $lesson->instructorID = request('instructorID');
         $lesson->notes = request('notes');
         
@@ -95,7 +95,7 @@ class LessonController extends Controller
         $lesson->lessonTime = request('lessonTime');
         $lesson->studentID = request('studentID');
         $lesson->horseID = request('horseID');
-        $lesson->location = request('location');
+        $lesson->locationID = request('locationID');
         $lesson->instructorID = request('instructorID');
         $lesson->notes = request('notes');
 

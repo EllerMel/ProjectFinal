@@ -105,7 +105,14 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" name="pasture" placeholder="Pasture">
+                    <select class="form-control" type="text" name="pastureID"  class="input">
+                    <?php $locations = \App\Location::where('type', 'Pasture')->where('isDeleted', '0')->get();; ?>
+                    <?php foreach ($locations as $location){
+                        ?>
+                        <option value="<?php echo $location->id; ?>"><?php echo $location->description; ?></option>
+                        <?php
+                    }?>
+                    </select>
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" name="stall" placeholder="Stall">

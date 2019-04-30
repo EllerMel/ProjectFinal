@@ -9,4 +9,8 @@ class Horse extends Model
     protected $fillable = [
         'name', 'gender', 'color',
     ];
+
+    public function pasture(){
+        return $this->belongsTo('App\Location', 'pastureID', 'id');
+    }
 }

@@ -34,7 +34,7 @@
             <div class="col">{{ $horse->gender }}</div>
             <div class="col cell">{{ $horse->color }}</div>
             <div class="col cell">{{ $horse->markings }}</div>
-            <div class="col">{{ $horse->pasture }}</div>
+            <div class="col">{{ $horse->pasture->description }}</div>
             <div class="col cell">{{ $horse->stall }}</div>
             <div class="col center">
                 <input class="form-check-input" type="checkbox" value="{{ $horse->isInactive }}" id="{{ $horse->id }}" disabled
@@ -65,7 +65,7 @@
                 <div class="col">{{ $horse->gender }}</div>
                 <div class="col">{{ $horse->color }}</div>
                 <div class="col cell">{{ $horse->markings }}</div>
-                <div class="col">{{ $horse->pasture }}</div>
+                <div class="col">{{ $horse->pasture->description }}</div>
                 <div class="col cell">{{ $horse->stall }}</div>
             </div>
             @endif

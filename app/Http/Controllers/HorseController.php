@@ -51,7 +51,7 @@ class HorseController extends Controller
         $horse->bridle = request('bridle');
         $horse->girth = request('girth');
         $horse->miscTack = request('miscTack');
-        $horse->pasture = request('pasture');
+        $horse->pastureID = request('pastureID');
         $horse->stall = request('stall');
         
         if($request->hasFile('mainImg')) {
@@ -127,7 +127,7 @@ class HorseController extends Controller
         $horse->bridle = request('bridle');
         $horse->girth = request('girth');
         $horse->miscTack = request('miscTack');
-        $horse->pasture = request('pasture');
+        $horse->pastureID = request('pastureID');
         $horse->stall = request('stall');
 
         if($request->hasFile('mainImg')) {

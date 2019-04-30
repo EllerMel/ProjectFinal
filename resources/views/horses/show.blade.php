@@ -69,7 +69,7 @@
         @if($horse->pasture)
         <div class="row">
             <div class="col-xs"><h4><strong>Pasture:</strong></h4></div>
-            <div class="col"><h4>{{ $horse->pasture }}</h4></div>
+            <div class="col"><h4>{{ $horse->pasture->description }}</h4></div>
         </div>
         @endif
         @if($horse->stall)

@@ -19,8 +19,10 @@
     <div class="row">
             <div class="col"><strong>Name</strong></div>
             <div class="col"><strong>Gender</strong></div>            
-            <div class="col"><strong>Color</strong></div>
-            <div class="col"><strong>Markings</strong></div>
+            <div class="col cell"><strong>Color</strong></div>
+            <div class="col cell"><strong>Makings</strong></div>
+            <div class="col"><strong>Pasture</strong></div>
+            <div class="col cell"><strong>Stall</strong></div>
             <div class="col center"><strong>Inactive</strong></div>
             <div class="col"><strong></strong></div>        
         </div>
@@ -30,8 +32,10 @@
         <div class="row">
             <div class="col"><a href="/horses/{{ $horse->id }}" class="link">{{ $horse->name }}</a></div>
             <div class="col">{{ $horse->gender }}</div>
-            <div class="col">{{ $horse->color }}</div>
-            <div class="col">{{ $horse->markings }}</div>
+            <div class="col cell">{{ $horse->color }}</div>
+            <div class="col cell">{{ $horse->markings }}</div>
+            <div class="col">{{ $horse->pasture }}</div>
+            <div class="col cell">{{ $horse->stall }}</div>
             <div class="col center">
                 <input class="form-check-input" type="checkbox" value="{{ $horse->isInactive }}" id="{{ $horse->id }}" disabled
                     @if($horse->isInactive) checked="checked" @endif >
@@ -46,7 +50,9 @@
             <div class="col"><strong>Name</strong></div>
             <div class="col"><strong>Gender</strong></div>  
             <div class="col"><strong>Color</strong></div>
-            <div class="col"><strong>Markings</strong></div>
+            <div class="col cell"><strong>Makings</strong></div>
+            <div class="col"><strong>Pasture</strong></div>
+            <div class="col cell"><strong>Stall</strong></div>
         </div>
     @foreach($horses as $horse)
     @if($horse->isDeleted == 0 && $horse->isInactive == 0)
@@ -54,7 +60,9 @@
             <div class="col"><a href="/horses/{{ $horse->id }}" class="link">{{ $horse->name }}</a></div>
             <div class="col">{{ $horse->gender }}</div>
             <div class="col">{{ $horse->color }}</div>
-            <div class="col">{{ $horse->markings }}</div>
+            <div class="col cell">{{ $horse->markings }}</div>
+            <div class="col">{{ $horse->pasture }}</div>
+            <div class="col cell">{{ $horse->stall }}</div>
         </div>
         @endif
     @endforeach

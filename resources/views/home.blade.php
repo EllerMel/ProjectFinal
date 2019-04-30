@@ -21,10 +21,10 @@
                     <div class="container center">
                         <div class="row">
                             <div class="col">
-                                <a href="/individuals" class="btn btn-menu">Individuals</a>
+                                <a href="/lessons" class="btn btn-menu">Lessons</a>
                             </div>
                             <div class="col">
-                                <a href="/lessons" class="btn btn-menu">Lessons</a>
+                                <a href="/individuals" class="btn btn-menu">Individuals</a>
                             </div>
                         </div>
                         <div class="row">
@@ -40,11 +40,11 @@
                     <div class="container center">
                         <div class="row">
                             <div class="col">
-                                <a href="/horses" class="btn btn-menu">Horses</a>
-                            </div>
-                            <div class="col">
                                 <a href="/lessons" class="btn btn-menu">Lessons</a>
                             </div> 
+                            <div class="col">
+                                <a href="/horses" class="btn btn-menu">Horses</a>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col">

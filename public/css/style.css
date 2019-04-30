@@ -46,6 +46,14 @@
     height: auto;
 }
 
+.logoMax {
+    max-width: 50%;
+}
+
+.logoMin {
+    max-height: 75px;
+}
+
 .link {
     color:  rgba(102, 22, 102, 0.842);
 }

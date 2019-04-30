@@ -30,8 +30,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Horse Lesson Assistant
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    <img class="logoMin" src="/files/images/HorseLesson.png" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -44,9 +44,6 @@
                         
                         @elseif (Auth::user()->admin == 1)
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/horses">Horses</a>
                         </li>
                         <li class="nav-item">
@@ -57,22 +54,19 @@
                         </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="/home">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/farm">Farm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/horses">Horses</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/lessons">Lessons</a>
+                        </li>
+                        <li class="nav-item">
                             <?php
                                 $individual = Auth::user()->individual;
                             ?>
                             <a href="/individuals/{{ $individual->id }} " class="nav-link">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/lessons">Lessons</a>
                         </li>
                         @endguest
                     </ul>

@@ -6,21 +6,29 @@
     <h1>{{ $horse->name }}</h1>
     <br>
     <div class="row">
+        @if($horse->mainImg)
         <div class="col-lg center">
             <img class="horseImg" src="/files/{{$horse->mainImg}}" />
         </div>
+        @endif
+        @if($horse->secondImg)
         <div class="col-lg center">
             <img class="horseImg" src="/files/{{$horse->secondImg}}" />
         </div>
+        @endif
     </div>
     <br>
     <div class="row">
+        @if($horse->thirdImg)
         <div class="col-lg center">
             <img class="horseImg" src="/files/{{$horse->thirdImg}}" />
         </div>
+        @endif
+        @if($horse->fourthImg)
         <div class="col-lg center">
             <img class="horseImg" src="/files/{{$horse->fourthImg}}" />
         </div>
+        @endif
     </div>
     <br>
     <div class="container">

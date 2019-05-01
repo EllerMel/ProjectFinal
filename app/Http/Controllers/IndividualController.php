@@ -15,7 +15,7 @@ class IndividualController extends Controller
      */
     public function index()
     {
-        $individuals = Individual::all();
+        $individuals = Individual::orderBy('displayName')->get();
 
         return view('individuals.index', compact('individuals'));
     }

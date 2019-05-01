@@ -15,8 +15,8 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::all();
-
+        $lessons = Lesson::orderBy('lessonDate')->get();
+        
         return view('lessons.index', compact('lessons'));
     }
 

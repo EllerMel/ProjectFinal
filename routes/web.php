@@ -45,4 +45,11 @@ Route::resource('farm', 'FarmController');
 
 Route::resource('lessons', 'LessonController');
 
+Route::get('/times', 'LessonController@times');
+Route::get('/days', 'LessonController@days');
+Route::get('/horses', 'LessonController@horses');
+Route::get('/instructors', 'LessonController@instructors');
+Route::get('/students', 'LessonController@students');
+Route::get('/spots', 'LessonController@spots');
+
 Route::resource('locations', 'LocationController');

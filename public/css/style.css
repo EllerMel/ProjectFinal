@@ -74,6 +74,10 @@ h1 {
     background: rgba(221, 221, 221, 0.555)
 }
 
+.shade:nth-child(even){
+    background: rgba(221, 221, 221, 0.555)
+}
+
 .odd:nth-child(odd){
     background: rgba(221, 221, 221, 0.555)
 }

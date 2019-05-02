@@ -29,7 +29,10 @@
             <div class="col"></div> 
         </div>
 
-    @foreach($lessons as $lesson)
+        <lesson-times></lesson-times>
+
+        <h1>THIS IS THE BREAK BETWEEN THE STUPID VUE AND THE WONDERFUL LARAVEL</h1>
+        @foreach($lessons as $lesson)
         <div class="row even">
             <div class="col"><a href="/lessons/{{ $lesson->id }}" class="link">{{ $lesson->lessonDate }}</a></div>
             <div class="col">{{ $lesson->lessonTime }}</div>

@@ -22,6 +22,8 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('curr-date', require('./components/curr-date.vue').default);
+Vue.component('lesson-date', require('./components/lesson-date.vue').default);
+Vue.component('lesson-times', require('./components/lesson-times.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -16,7 +16,7 @@
                     <input class="form-check-input" type="checkbox" name="isInactive" value="{{ $horse->isInactive }}" id="{{ $horse->id }}"
                         @if($horse->isInactive) checked="checked" @endif >
 
-                        <label class="form-check-label">Mark Inactive</label>
+                        <label class="form-check-label">Temporarily unavailable</label>
                 </div>
             </div>
             <br>

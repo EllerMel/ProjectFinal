@@ -22,9 +22,9 @@ class AdminSeeder extends Seeder
 
         \App\User::create([
             'name' => 'Mel',
-            'email' => 'EllerMel5@gmail.com',
+            'email' => 'mel@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('melmelmel'),
             'admin' => 1,
             'approved_at' => now(),
         ]);
@@ -40,54 +40,63 @@ class AdminSeeder extends Seeder
 
         \App\User::create([
             'name' => 'Steph',
-            'email' => 'Steph@gmail.com',
+            'email' => 'steph@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('stephstephsteph'),
             'admin' => 0,
             'approved_at' => now(),
         ]);
 
         \App\User::create([
             'name' => 'Tori',
-            'email' => 'Tori@gmail.com',
+            'email' => 'tori@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('toritoritori'),
             'admin' => 0,
             'approved_at' => now(),
         ]);
 
         \App\User::create([
             'name' => 'Mal',
-            'email' => 'Mal@gmail.com',
+            'email' => 'mal@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('malmalmal'),
             'admin' => 0,
             'approved_at' => now(),
         ]);
 
         \App\User::create([
             'name' => 'Tressa',
-            'email' => 'Tressa@gmail.com',
+            'email' => 'tressa@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('tressatressa'),
             'admin' => 0,
             'approved_at' => now(),
         ]);
 
         \App\User::create([
             'name' => 'Ash',
-            'email' => 'Ash@gmail.com',
+            'email' => 'ash@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('ashashash'),
             'admin' => 0,
             'approved_at' => now(),
         ]);
 
         \App\User::create([
             'name' => 'Char',
-            'email' => 'Char@gmail.com',
+            'email' => 'char@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('newnewnew'),
+            'password' => bcrypt('charcharchar'),
+            'admin' => 0,
+            'approved_at' => now(),
+        ]);
+
+        \App\User::create([
+            'name' => 'Jessica',
+            'email' => 'jessica@gmail.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('jessicajessica'),
             'admin' => 0,
             'approved_at' => now(),
         ]);

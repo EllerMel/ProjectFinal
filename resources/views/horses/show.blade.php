@@ -32,6 +32,12 @@
     </div>
     <br>
     <div class="container">
+        @if($horse->isInactive == 1)
+        <div class="row">
+            <div class="col-xs"><h4><strong>Status:</strong></h4></div>
+            <div class="col warning"><h4>Unavailable</h4></div>
+        </div>
+        @endif
         @if($horse->gender)
         <div class="row">
             <div class="col-xs"><h4><strong>Gender:</strong></h4></div>

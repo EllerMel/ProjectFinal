@@ -109,6 +109,7 @@ class HorseSeeder extends Seeder
             'stall' => "6",
             'mainImg' => "images/N59KGZ6m1G5LEHDmr2vssH3MGQ7jRwxZlZhwZMR7.jpeg",
             'secondImg' => "images/h4gspcrif0F95njLLEkAJUBSqkPoEwe9ragTC3wv.jpeg",
+            'isInactive' => '1'
         ]);
 
         \App\Horse::create([

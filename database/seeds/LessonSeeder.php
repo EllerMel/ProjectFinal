@@ -18,6 +18,7 @@ class LessonSeeder extends Seeder
             'horseID' => '1',
             'locationID' => '7',
             'instructorID' => '1',
+            'isCanceled' => '1',
         ]);
 
         \App\Lesson::create([

@@ -74,12 +74,16 @@ h1 {
     background: rgba(221, 221, 221, 0.555)
 }
 
-.shade:nth-child(even){
+.odd:nth-child(odd){
     background: rgba(221, 221, 221, 0.555)
 }
 
-.odd:nth-child(odd){
+.shade{
     background: rgba(221, 221, 221, 0.555)
+}
+
+.not{
+    background: white
 }
 
 @media only screen and (max-width: 900px) {

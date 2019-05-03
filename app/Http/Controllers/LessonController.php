@@ -29,53 +29,9 @@ class LessonController extends Controller
                 ->leftJoin('locations', 'lessons.locationID', '=', 'locations.id')
                 ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
                             'horses.name as horse', 'locations.description as location', 'isCanceled')
+                ->orderBy('lessonDate', 'desc')
                 ->get();
         return json_encode($lessons);
-    }
-
-    public function days()
-    {
-        return Lesson::distinct()->get(['lessonDate']);
-    }
-
-    public function horses()
-    {
-        $horses = Lesson::leftJoin('horses', 'lessons.horseID', '=', 'horses.id')
-                ->select('horses.name as horse')
-                ->distinct()
-                ->get();
-
-        return json_encode($horses);
-    }
-
-    public function instructors()
-    {
-        $instructors = Lesson::leftJoin('individuals as instructor', 'lessons.instructorID', '=', 'instructor.id')
-                ->select('instructor.displayName as instructor')
-                ->distinct()
-                ->get();
-
-        return json_encode($instructors);
-    }
-
-    public function students()
-    {
-        $students = Lesson::leftJoin('individuals as student', 'lessons.studentID', '=', 'student.id')
-                ->select('student.displayName as rider')
-                ->distinct()
-                ->get();
-
-        return json_encode($students);
-    }
-
-    public function spots()
-    {
-        $locations = Lesson::leftJoin('locations', 'lessons.locationID', '=', 'locations.id')
-        ->select('locations.description as location')
-        ->distinct()
-        ->get();
-
-        return json_encode($locations);
     }
 
     /**

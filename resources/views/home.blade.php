@@ -8,6 +8,9 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
+                    @guest
+
+                    @else
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -60,6 +63,7 @@
                         </div>
                     </div>
                 @endif
+                @endguest
 
                 </div>
             </div>

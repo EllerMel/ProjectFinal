@@ -18,35 +18,8 @@
         <br>
         <p>Click on date to view lesson</p>
         <br>
-        <div class="row top">
-            <div class="col"><strong>Date</strong></div>
-            <div class="col"><strong>Time</strong></div>
-            <div class="col"><strong>Student</strong></div>
-            <div class="col"><strong>Horse</strong></div>
-            <div class="col"><strong>Location</strong></div>
-            <div class="col"><strong>Instructor</strong></div>
-            <div class="col"><strong>Canceled</strong></div>
-            <div class="col"></div> 
-        </div>
 
         <lesson-times></lesson-times>
-
-        <h1>THIS IS THE BREAK BETWEEN THE STUPID VUE AND THE WONDERFUL LARAVEL</h1>
-        @foreach($lessons as $lesson)
-        <div class="row even">
-            <div class="col"><a href="/lessons/{{ $lesson->id }}" class="link">{{ $lesson->lessonDate }}</a></div>
-            <div class="col">{{ $lesson->lessonTime }}</div>
-            <div class="col">{{ $lesson->student->displayName }}</div>
-            <div class="col">{{ $lesson->horse->name }}</div>
-            <div class="col">{{ $lesson->location->description}}</div>
-            <div class="col">{{ $lesson->instructor->displayName }}</div>
-            <div class="col center">
-                <input class="form-check-input" type="checkbox" value="{{ $lesson->isCanceled }}" id="{{ $lesson->id }}" disabled
-                    @if($lesson->isCanceled) checked="checked" @endif >
-            </div>
-            <div class="col"><a href="/lessons/{{ $lesson->id }}/edit" class="btn btn-grey btn-sm">Edit</a></div>
-        </div>
-    @endforeach
     
     @else
         <h1>{{ Auth::user()->individual-> displayName }}'s Lessons</h1>

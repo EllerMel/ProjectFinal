@@ -1892,45 +1892,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      fields: {
-        lessonDate: {
-          label: 'Date',
-          sortable: true
-        },
-        lessonTime: {
-          label: 'Time',
-          sortable: false
-        },
-        rider: {
-          label: 'Student',
-          sortable: true
-        },
-        horse: {
-          label: 'Horse',
-          sortable: true
-        },
-        location: {
-          label: 'Location',
-          sortable: true
-        },
-        instructor: {
-          label: 'Instructor',
-          sortable: true
-        },
-        isCanceled: {
-          label: 'Canceled',
-          sortable: false
-        }
-      },
-      lessonObject: [],
-      dayObject: [],
-      horseObject: [],
-      instructorObject: [],
-      studentObject: [],
-      spotObject: []
+      lessonObject: []
     };
   },
   methods: {
@@ -1938,88 +1912,25 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/times").then(function (Response) {
-        _this.lessonTime = Response.data;
+        _this.lessonSlot = Response.data;
 
-        for (var i in _this.lessonTime) {
-          _this.lessonObject.push(_this.lessonTime[i]);
+        for (var i in _this.lessonSlot) {
+          _this.lessonObject.push(_this.lessonSlot[i]);
         }
       })["catch"](function (error) {
         return console.log(error);
       });
     },
-    getDays: function getDays() {
-      var _this2 = this;
-
-      axios.get("/days").then(function (Response) {
-        _this2.lessonDay = Response.data;
-
-        for (var i in _this2.lessonDay) {
-          _this2.dayObject.push(_this2.lessonDay[i]);
-        }
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    },
-    getHorses: function getHorses() {
-      var _this3 = this;
-
-      axios.get("/horses").then(function (Response) {
-        _this3.lessonHorse = Response.data;
-
-        for (var i in _this3.lessonHorse) {
-          _this3.horseObject.push(_this3.lessonHorse[i]);
-        }
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    },
-    getInstructors: function getInstructors() {
-      var _this4 = this;
-
-      axios.get("/instructors").then(function (Response) {
-        _this4.lessonInstructor = Response.data;
-
-        for (var i in _this4.lessonInstructor) {
-          _this4.instructorObject.push(_this4.lessonInstructor[i]);
-        }
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    },
-    getStudents: function getStudents() {
-      var _this5 = this;
-
-      axios.get("/students").then(function (Response) {
-        _this5.lessonStudent = Response.data;
-
-        for (var i in _this5.lessonStudent) {
-          _this5.studentObject.push(_this5.lessonStudent[i]);
-        }
-      })["catch"](function (error) {
-        return console.log(error);
-      });
-    },
-    getSpots: function getSpots() {
-      var _this6 = this;
-
-      axios.get("/spots").then(function (Response) {
-        _this6.lessonSpot = Response.data;
-
-        for (var i in _this6.lessonSpot) {
-          _this6.spotObject.push(_this6.lessonSpot[i]);
-        }
-      })["catch"](function (error) {
-        return console.log(error);
-      });
+    rowColor: function rowColor(index) {
+      if (index % 2 === 0) {
+        return "row not";
+      } else {
+        return "row shade";
+      }
     }
   },
   mounted: function mounted() {
     this.getLessons();
-    this.getDays();
-    this.getHorses();
-    this.getInstructors();
-    this.getStudents();
-    this.getSpots();
   }
 });
 
@@ -37419,98 +37330,130 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.lessonObject, function(lesson) {
-      return _c("div", { key: lesson }, [
-        _c("div", { staticClass: "row shade" }, [
-          _c("div", { staticClass: "col" }, [
-            _c(
-              "a",
-              { staticClass: "link", attrs: { href: "/lessons/" + lesson.id } },
-              [_vm._v(_vm._s(lesson.lessonDate))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _vm._v(_vm._s(lesson.lessonTime))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v(_vm._s(lesson.rider))]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v(_vm._s(lesson.horse))]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v(_vm._s(lesson.location))]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _vm._v(_vm._s(lesson.instructor))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col center" }, [
-            _c("input", {
-              directives: [
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.lessonObject, function(lesson, index) {
+        return _c("div", { key: lesson.id }, [
+          _c("div", { class: _vm.rowColor(index) }, [
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "a",
                 {
-                  name: "model",
-                  rawName: "v-model",
+                  staticClass: "link",
+                  attrs: { href: "/lessons/" + lesson.id }
+                },
+                [_vm._v(_vm._s(lesson.lessonDate))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _vm._v(_vm._s(lesson.lessonTime))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [_vm._v(_vm._s(lesson.rider))]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [_vm._v(_vm._s(lesson.horse))]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _vm._v(_vm._s(lesson.location))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _vm._v(_vm._s(lesson.instructor))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col center" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: lesson.isCanceled,
+                    expression: "lesson.isCanceled"
+                  }
+                ],
+                staticClass: "form-check-input",
+                attrs: {
+                  type: "checkbox",
+                  id: lesson.id,
+                  disabled: "",
+                  checked: "checked"
+                },
+                domProps: {
                   value: lesson.isCanceled,
-                  expression: "lesson.isCanceled"
-                }
-              ],
-              staticClass: "form-check-input",
-              attrs: {
-                type: "checkbox",
-                id: lesson.id,
-                disabled: "",
-                checked: "checked"
-              },
-              domProps: {
-                value: lesson.isCanceled,
-                checked: Array.isArray(lesson.isCanceled)
-                  ? _vm._i(lesson.isCanceled, lesson.isCanceled) > -1
-                  : lesson.isCanceled
-              },
-              on: {
-                change: function($event) {
-                  var $$a = lesson.isCanceled,
-                    $$el = $event.target,
-                    $$c = $$el.checked ? true : false
-                  if (Array.isArray($$a)) {
-                    var $$v = lesson.isCanceled,
-                      $$i = _vm._i($$a, $$v)
-                    if ($$el.checked) {
-                      $$i < 0 &&
-                        _vm.$set(lesson, "isCanceled", $$a.concat([$$v]))
+                  checked: Array.isArray(lesson.isCanceled)
+                    ? _vm._i(lesson.isCanceled, lesson.isCanceled) > -1
+                    : lesson.isCanceled
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = lesson.isCanceled,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = lesson.isCanceled,
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 &&
+                          _vm.$set(lesson, "isCanceled", $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          _vm.$set(
+                            lesson,
+                            "isCanceled",
+                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                          )
+                      }
                     } else {
-                      $$i > -1 &&
-                        _vm.$set(
-                          lesson,
-                          "isCanceled",
-                          $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                        )
+                      _vm.$set(lesson, "isCanceled", $$c)
                     }
-                  } else {
-                    _vm.$set(lesson, "isCanceled", $$c)
                   }
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-grey btn-sm",
-                attrs: { href: "/lessons/" + lesson.id + "/edit" }
-              },
-              [_vm._v("Edit")]
-            )
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-grey btn-sm",
+                  attrs: { href: "/lessons/" + lesson.id + "/edit" }
+                },
+                [_vm._v("Edit")]
+              )
+            ])
           ])
         ])
-      ])
-    }),
-    0
+      })
+    ],
+    2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row top" }, [
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Date")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Time")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Student")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Horse")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Location")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Instructor")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Canceled")])]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" })
+    ])
+  }
+]
 render._withStripped = true
 
 

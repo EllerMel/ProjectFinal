@@ -141,7 +141,9 @@
 
             <div class="row">
                 <div class="col">
+                @if($horse->mainImg)
                 <img class="horseImg" src="/files/{{$horse->mainImg}}" />
+                @endif
                 <label>Main Image</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
@@ -150,7 +152,9 @@
                     </div>
                 </div>
                 <div class="col">
+                @if($horse->secondImg) 
                 <img class="horseImg" src="/files/{{$horse->secondImg}}" />
+                @endif              
                 <label>Second Image</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
@@ -163,7 +167,9 @@
 
             <div class="row">
                 <div class="col">
+                @if($horse->thirdImg)
                 <img class="horseImg" src="/files/{{$horse->thirdImg}}" />
+                @endif
                 <label>Third Image</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
@@ -172,7 +178,9 @@
                     </div>
                 </div>
                 <div class="col">
+                @if($horse->fourthImg)
                 <img class="horseImg" src="/files/{{$horse->fourthImg}}" />
+                @endif
                 <label>Fourth Image</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">

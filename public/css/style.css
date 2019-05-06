@@ -1,5 +1,9 @@
+.navbar-blue {
+   background-color: rgba(21, 139, 186, 0.808) !important;
+}
+
 .btn-menu {
-    background-color: rgba(102, 22, 102, 0.842);
+    background-color:  rgb(21, 139, 186);
     border: none;
     color: white;
     min-width: 175px;
@@ -32,8 +36,8 @@
     font-size: 16px;
 }
 
-.btn-purple {
-    background-color: rgba(102, 22, 102, 0.842);
+.btn-blue {
+    background-color:  rgba(21, 139, 186, 0.808);
 }
 
 .btn-grey {
@@ -66,11 +70,11 @@
 }
 
 .link {
-    color:  rgba(102, 22, 102, 0.842);
+    color:  rgba(21, 139, 186);
 }
 
 h1 {
-    color:  rgba(102, 22, 102, 0.842);
+    color:  rgba(21, 139, 186);
 }
 
 .warning {

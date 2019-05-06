@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col"><h1>Horses</h1></div>
         <div class="col"></div>
-        <div class="col"><a href="/horses/create" class="btn btn-purple btn-main">Add Horse</a></div>
+        <div class="col"><a href="/horses/create" class="btn btn-blue btn-main">Add Horse</a></div>
     </div>
     <div class="row">
         <div class="col"></div>

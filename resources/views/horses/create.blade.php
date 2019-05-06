@@ -162,7 +162,7 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" class="btn btn-purple btn-main">Add Horse</button>
+                        <button type="submit" class="btn btn-blue btn-main">Add Horse</button>
                     </div>
                 </div>
             </div>

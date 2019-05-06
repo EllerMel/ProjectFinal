@@ -118,7 +118,7 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" class="btn btn-purple btn-main">Update Farm</button>
+                        <button type="submit" class="btn btn-blue btn-main">Update Farm</button>
                     </div>
                 </div>
             </div>

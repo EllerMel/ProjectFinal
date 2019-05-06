@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    <br>
+    @guest
+    <h1>Welcome</h1>
+    @else
+    <?php $individual = Auth::user()->individual; ?>
+    <h1>Welcome - {{ $individual->displayName }}</h1>
+    @endguest
+    <br>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -17,8 +25,8 @@
                         </div>
                     @endif
 
-                    You are logged in! Please select one of the options below.
-                    
+                    You are logged in. Please select one of the options below.
+                    <br>
                     <br>
                     @if (Auth::user()->admin == 1)
                     <div class="container center">
@@ -38,6 +46,7 @@
                                 <a href="/farm" class="btn btn-menu">Farm Info</a>
                             </div>
                         </div>
+                        <br>
                     </div>
                     @else
                     <div class="container center">
@@ -61,6 +70,7 @@
                             </div>
                         </div>
                         </div>
+                        <br>
                     </div>
                 @endif
                 @endguest

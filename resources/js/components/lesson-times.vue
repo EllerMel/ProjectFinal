@@ -1,8 +1,6 @@
 <template>
     <div>
         <div class="row">
-            <div class="col"></div>
-            <div class="col"></div>
             <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-two" @click="getLessons()">Current Lessons</button></div>
             <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-two" @click="getPastLessons()">Past Lessons</button></div>
         </div>

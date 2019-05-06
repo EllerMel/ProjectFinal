@@ -108,7 +108,7 @@
             </div>
             <br>
             <div>
-                <button type="submit"class="btn btn-purple btn-main">Add Farm Info</button>
+                <button type="submit"class="btn btn-blue btn-main">Add Farm Info</button>
             </div>
         </form>
     </div>

@@ -1907,8 +1907,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37345,10 +37343,6 @@ var render = function() {
     "div",
     [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }),
-        _vm._v(" "),
         _c(
           "div",
           { staticClass: "col", staticStyle: { "text-align": "right" } },

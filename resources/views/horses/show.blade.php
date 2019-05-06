@@ -98,7 +98,7 @@
     @if (Auth::user()->admin == 1)
     <div class="row">
         <div class="col">
-            <a href="/horses/{{ $horse->id }}/edit" class="btn btn-purple btn-main">Edit</a>
+            <a href="/horses/{{ $horse->id }}/edit" class="btn btn-blue btn-main">Edit</a>
         </div>
         <div class="col">
             <a href="/horses" class="btn btn-secondary btn-main">Close</a>

@@ -8,14 +8,13 @@
         <div class="row">
             <div class="col"><h1>Lessons</h1></div>
             <div class="col"></div>
-            <div class="col"><a href="/lessons/create" class="btn btn-purple btn-main">Add Lesson</a></div>
+            <div class="col"><a href="/lessons/create" class="btn btn-blue btn-main">Add Lesson</a></div>
         </div>
         <div class="row">
             <div class="col"></div>
             <div class="col"></div>
             <div class="col"><a href="/locations" class="btn btn-grey btn-main">Add/Edit Arenas</a></div>
         </div>
-        <br>
         <p>Click on date to view lesson</p>
         <br>
 

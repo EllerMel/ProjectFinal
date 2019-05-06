@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col"></div>
-            <div class="col"><a href="/locations/create" class="btn btn-purple btn-main">Add Location</a></div>
+            <div class="col"><a href="/locations/create" class="btn btn-blue btn-main">Add Location</a></div>
         </div>
         <h1>Pastures</h1>
         <br>

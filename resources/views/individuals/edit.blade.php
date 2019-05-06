@@ -67,7 +67,7 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" class="btn btn-purple btn-main">Update Profile</button>
+                        <button type="submit" class="btn btn-blue btn-main">Update Profile</button>
                     </div>
                 </div>
             </div>

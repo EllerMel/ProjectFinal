@@ -37466,16 +37466,20 @@ var render = function() {
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-grey btn-sm",
-                  attrs: { href: "/lessons/" + lesson.id + "/edit" }
-                },
-                [_vm._v("Edit")]
-              )
-            ])
+            _c(
+              "div",
+              { staticClass: "col", staticStyle: { "text-align": "right" } },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-grey btn-sm",
+                    attrs: { href: "/lessons/" + lesson.id + "/edit" }
+                  },
+                  [_vm._v("Edit")]
+                )
+              ]
+            )
           ])
         ])
       })

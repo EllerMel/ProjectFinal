@@ -21,7 +21,7 @@
             <div class="col">{{ $individual->phoneNumber }}</div>
             <div class="col cell">{{ $individual->emergencyContact }}</div>
             <div class="col cell">{{ $individual->emergencyPhone }}</div>
-            <div class="col"><a href="/individuals/{{ $individual->id }}/edit" class="btn btn-grey btn-sm">Edit</a></div>
+            <div class="col" style="text-align:right;"><a href="/individuals/{{ $individual->id }}/edit" class="btn btn-grey btn-sm">Edit</a></div>
         </div>
     @endforeach
     @endif

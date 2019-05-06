@@ -29,7 +29,7 @@
                     <input class="form-check-input" type="checkbox" :value="lesson.isCanceled" :id="lesson.id" disabled
                         v-model='lesson.isCanceled' checked="checked" >
                 </div>
-                <div class="col"><a v-bind:href="'/lessons/' + lesson.id + '/edit'" class="btn btn-grey btn-sm">Edit</a></div>
+                <div class="col" style="text-align:right;"><a v-bind:href="'/lessons/' + lesson.id + '/edit'" class="btn btn-grey btn-sm">Edit</a></div>
             </div>
         </div>
     </div>

@@ -40,7 +40,7 @@
                 <input class="form-check-input" type="checkbox" value="{{ $horse->isInactive }}" id="{{ $horse->id }}" disabled
                     @if($horse->isInactive) checked="checked" @endif >
             </div>
-            <div class="col"><a href="/horses/{{ $horse->id }}/edit" class="btn btn-grey btn-sm">Edit</a></div>
+            <div class="col" style="text-align:right;"><a href="/horses/{{ $horse->id }}/edit" class="btn btn-grey btn-sm">Edit</a></div>
         </div>
         @endif
     @endforeach

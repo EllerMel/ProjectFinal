@@ -30,6 +30,7 @@ class LessonController extends Controller
                 ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
                             'horses.name as horse', 'locations.description as location', 'isCanceled')
                 ->where('lessonDate', ">=", now())
+                ->where('isCanceled', "=", 0)
                 ->orderBy('lessonDate', 'desc')
                 ->get();
         return json_encode($lessons);
@@ -45,6 +46,22 @@ class LessonController extends Controller
                 ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
                             'horses.name as horse', 'locations.description as location', 'isCanceled')
                 ->where('lessonDate', "<", now())
+                ->where('isCanceled', "=", 0)
+                ->orderBy('lessonDate', 'desc')
+                ->get();
+        return json_encode($lessons);
+    }
+
+    public function cancelledTimes()
+    {
+        $lessons = Lesson::orderBy('lessonDate')
+                ->leftJoin('individuals as student', 'lessons.studentID', '=', 'student.id')
+                ->leftJoin('individuals as instructor', 'lessons.instructorID', '=', 'instructor.id')
+                ->leftJoin('horses', 'lessons.horseID', '=', 'horses.id')
+                ->leftJoin('locations', 'lessons.locationID', '=', 'locations.id')
+                ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
+                            'horses.name as horse', 'locations.description as location', 'isCanceled')
+                ->where('isCanceled', "=", 1)
                 ->orderBy('lessonDate', 'desc')
                 ->get();
         return json_encode($lessons);

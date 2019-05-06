@@ -1907,6 +1907,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1928,6 +1929,15 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/pastTimes").then(function (Response) {
         _this2.lessonObject = Response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    getCancelledLessons: function getCancelledLessons() {
+      var _this3 = this;
+
+      axios.get("/cancelledTimes").then(function (Response) {
+        _this3.lessonObject = Response.data;
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -37350,14 +37360,33 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-outline-dark btn-two",
+                staticClass: "btn btn-outline-dark btn-lesson",
                 on: {
                   click: function($event) {
                     return _vm.getLessons()
                   }
                 }
               },
-              [_vm._v("Current Lessons")]
+              [_vm._v("Current")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col", staticStyle: { "text-align": "center" } },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-dark btn-lesson",
+                on: {
+                  click: function($event) {
+                    return _vm.getPastLessons()
+                  }
+                }
+              },
+              [_vm._v("Past")]
             )
           ]
         ),
@@ -37369,14 +37398,14 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-outline-dark btn-two",
+                staticClass: "btn btn-outline-dark btn-lesson",
                 on: {
                   click: function($event) {
-                    return _vm.getPastLessons()
+                    return _vm.getCancelledLessons()
                   }
                 }
               },
-              [_vm._v("Past Lessons")]
+              [_vm._v("Cancelled")]
             )
           ]
         )
@@ -37414,56 +37443,6 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col" }, [
               _vm._v(_vm._s(lesson.instructor))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col center" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: lesson.isCanceled,
-                    expression: "lesson.isCanceled"
-                  }
-                ],
-                staticClass: "form-check-input",
-                attrs: {
-                  type: "checkbox",
-                  id: lesson.id,
-                  disabled: "",
-                  checked: "checked"
-                },
-                domProps: {
-                  value: lesson.isCanceled,
-                  checked: Array.isArray(lesson.isCanceled)
-                    ? _vm._i(lesson.isCanceled, lesson.isCanceled) > -1
-                    : lesson.isCanceled
-                },
-                on: {
-                  change: function($event) {
-                    var $$a = lesson.isCanceled,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = lesson.isCanceled,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 &&
-                          _vm.$set(lesson, "isCanceled", $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          _vm.$set(
-                            lesson,
-                            "isCanceled",
-                            $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                          )
-                      }
-                    } else {
-                      _vm.$set(lesson, "isCanceled", $$c)
-                    }
-                  }
-                }
-              })
             ]),
             _vm._v(" "),
             _c(
@@ -37504,8 +37483,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Location")])]),
       _vm._v(" "),
       _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Instructor")])]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [_c("strong", [_vm._v("Canceled")])]),
       _vm._v(" "),
       _c("div", { staticClass: "col" })
     ])

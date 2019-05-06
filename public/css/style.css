@@ -36,6 +36,17 @@
     font-size: 16px;
 }
 
+.btn-lesson {
+    border: 1 px black;
+    color: black;
+    min-width: 75px;
+    margin-top:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
 .btn-blue {
     background-color:  rgba(21, 139, 186, 0.808);
 }

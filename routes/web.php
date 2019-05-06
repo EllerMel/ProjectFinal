@@ -47,5 +47,6 @@ Route::resource('lessons', 'LessonController');
 
 Route::get('/times', 'LessonController@times');
 Route::get('/pastTimes', 'LessonController@pastTimes');
+Route::get('/cancelledTimes', 'LessonController@cancelledTimes');
 
 Route::resource('locations', 'LocationController');

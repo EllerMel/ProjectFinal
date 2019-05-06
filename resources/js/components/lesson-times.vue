@@ -1,8 +1,9 @@
 <template>
     <div>
         <div class="row">
-            <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-two" @click="getLessons()">Current Lessons</button></div>
-            <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-two" @click="getPastLessons()">Past Lessons</button></div>
+            <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-lesson" @click="getLessons()">Current</button></div>
+            <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPastLessons()">Past</button></div>
+            <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-lesson" @click="getCancelledLessons()">Cancelled</button></div>
         </div>
         <br>
 
@@ -13,7 +14,7 @@
             <div class="col"><strong>Horse</strong></div>
             <div class="col"><strong>Location</strong></div>
             <div class="col"><strong>Instructor</strong></div>
-            <div class="col"><strong>Canceled</strong></div>
+            <!-- <div class="col"><strong>Canceled</strong></div> -->
             <div class="col"></div> 
         </div>
       
@@ -25,10 +26,10 @@
                 <div class="col">{{ lesson.horse }}</div>
                 <div class="col">{{ lesson.location }}</div>
                 <div class="col">{{ lesson.instructor }}</div>
-                <div class="col center">
+                <!-- <div class="col center">
                     <input class="form-check-input" type="checkbox" :value="lesson.isCanceled" :id="lesson.id" disabled
                         v-model='lesson.isCanceled' checked="checked" >
-                </div>
+                </div> -->
                 <div class="col" style="text-align:right;"><a v-bind:href="'/lessons/' + lesson.id + '/edit'" class="btn btn-grey btn-sm">Edit</a></div>
             </div>
         </div>
@@ -54,6 +55,14 @@ export default {
         getPastLessons() {
         axios
             .get("/pastTimes")
+            .then(Response => {
+            this.lessonObject = Response.data;
+            })
+            .catch(error => console.log(error));
+        },
+        getCancelledLessons() {
+        axios
+            .get("/cancelledTimes")
             .then(Response => {
             this.lessonObject = Response.data;
             })

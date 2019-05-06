@@ -1901,6 +1901,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1912,11 +1920,16 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/times").then(function (Response) {
-        _this.lessonSlot = Response.data;
+        _this.lessonObject = Response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    getPastLessons: function getPastLessons() {
+      var _this2 = this;
 
-        for (var i in _this.lessonSlot) {
-          _this.lessonObject.push(_this.lessonSlot[i]);
-        }
+      axios.get("/pastTimes").then(function (Response) {
+        _this2.lessonObject = Response.data;
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -37331,6 +37344,52 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col", staticStyle: { "text-align": "right" } },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-dark btn-two",
+                on: {
+                  click: function($event) {
+                    return _vm.getLessons()
+                  }
+                }
+              },
+              [_vm._v("Current Lessons")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col", staticStyle: { "text-align": "left" } },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-dark btn-two",
+                on: {
+                  click: function($event) {
+                    return _vm.getPastLessons()
+                  }
+                }
+              },
+              [_vm._v("Past Lessons")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _vm._l(_vm.lessonObject, function(lesson, index) {

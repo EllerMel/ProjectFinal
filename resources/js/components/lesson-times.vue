@@ -1,5 +1,13 @@
 <template>
     <div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-two" @click="getLessons()">Current Lessons</button></div>
+            <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-two" @click="getPastLessons()">Past Lessons</button></div>
+        </div>
+        <br>
+
         <div class="row top">
             <div class="col"><strong>Date</strong></div>
             <div class="col"><strong>Time</strong></div>
@@ -41,10 +49,15 @@ export default {
         axios
             .get("/times")
             .then(Response => {
-            this.lessonSlot = Response.data;
-            for (let i in this.lessonSlot) {
-                this.lessonObject.push(this.lessonSlot[i]);
-            }
+            this.lessonObject = Response.data;
+            })
+            .catch(error => console.log(error));
+        },
+        getPastLessons() {
+        axios
+            .get("/pastTimes")
+            .then(Response => {
+            this.lessonObject = Response.data;
             })
             .catch(error => console.log(error));
         },

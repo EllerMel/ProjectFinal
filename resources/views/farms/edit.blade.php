@@ -71,7 +71,10 @@
 
             <div class="row">
                 <div class="col">
+                @if($farm->featureImg)
                 <img class="horseImg" src="/files/{{$farm->featureImg}}" />
+                <br>
+                @endif
                 <label>Main Image</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
@@ -80,8 +83,11 @@
                     </div>
                 </div>
                 <div class="col">
+                @if($farm->stallImg)
                 <img class="horseImg" src="/files/{{$farm->stallImg}}" />
-                <label>Second Image</label>
+                <br>
+                @endif
+                <label>Second Image (Stalls)</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
                         <input type="file" name="stallImg" value="{{ $farm->stallImg }}">
@@ -93,8 +99,11 @@
 
             <div class="row">
                 <div class="col">
+                @if($farm->pastureImg)
                 <img class="horseImg" src="/files/{{$farm->pastureImg}}" />
-                <label>Third Image</label>
+                <br>
+                @endif
+                <label>Third Image (Pastures)</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
                         <input type="file" name="pastureImg" value="{{ $farm->pastureImg }}">
@@ -102,8 +111,11 @@
                     </div>
                 </div>
                 <div class="col">
+                @if($farm->ringImg)
                 <img class="horseImg" src="/files/{{$farm->ringImg}}" />
-                <label>Fourth Image</label>
+                <br>
+                @endif
+                <label>Fourth Image (Rings)</label>
                     <div class="file-field">
                         <div class="btn btn-secondary btn-sm float-left">
                         <input type="file" name="ringImg" value="{{ $farm->ringImg }}">

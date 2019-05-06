@@ -19,6 +19,12 @@
         <h2>{{ $farm->name }}</h2>
         <br>
 
+        @if($farm->featureImg)
+            <img class="farmImg center" src="/files/{{$farm->featureImg}}" />
+        @endif
+        <br>
+        <br>
+
         <h4>
         {{ $farm->address1 }}
         {{ $farm->address2 }}
@@ -35,6 +41,24 @@
         <br>
 
         <h4>{{ $farm->email }}</h4>
+        <br>
+
+        @if($farm->stallImg)
+            <div class="stallDetails" style="display:none"><img class="horseImg" src="/files/{{$farm->stallImg}}" /></div>
+            <button class="btn btn-blue btn-main"  id="moreStall" href="#" onclick="$('.stallDetails').slideToggle(function(){$('#moreStall').html($('.stallDetails').is(':visible')?'Hide Stall Layout':'Show Stall Layout');});">Show Stall Layout</button>
+        @endif
+        <br>
+
+        @if($farm->pastureImg)
+            <div class="pastureDetails" style="display:none"><img class="horseImg" src="/files/{{$farm->pastureImg}}" /></div>
+            <button class="btn btn-blue btn-main" id="morePasture" href="#" onclick="$('.pastureDetails').slideToggle(function(){$('#morePasture').html($('.pastureDetails').is(':visible')?'Hide Pasture Layout':'Show Pasture Layout');});">Show Pasture Layout</button>
+        @endif
+        <br>
+
+        @if($farm->ringImg)
+            <div class="ringDetails" style="display:none"><img class="horseImg" src="/files/{{$farm->ringImg}}" /></div>
+            <button class="btn btn-blue btn-main"  id="moreRing" href="#" onclick="$('.ringDetails').slideToggle(function(){$('#moreRing').html($('.ringDetails').is(':visible')?'Hide Ring Layout':'Show Ring Layout');});">Show Ring Layout</button>
+        @endif
         <br>
     </div>
 

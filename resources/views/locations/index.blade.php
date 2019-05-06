@@ -15,7 +15,7 @@
             <div class="row even">
                 <div class="col">{{ $location->description }}</div>
                 <div class="col"></div>
-                <div class="col"><a href="/locations/{{ $location->id }}/edit" class="btn btn-grey btn-sm">Edit/Remove</a></div>
+                <div class="col" style="text-align:right;"><a href="/locations/{{ $location->id }}/edit" class="btn btn-grey btn-sm">Edit/Remove</a></div>
             </div>
         @endif
         @endforeach
@@ -28,7 +28,7 @@
             <div class="row even">
                 <div class="col">{{ $location->description }}</div>
                 <div class="col"></div>
-                <div class="col"><a href="/locations/{{ $location->id }}/edit" class="btn btn-grey btn-sm">Edit/Remove</a></div>
+                <div class="col" style="text-align:right;"><a href="/locations/{{ $location->id }}/edit" class="btn btn-grey btn-sm">Edit/Remove</a></div>
             </div>
         @endif
         @endforeach

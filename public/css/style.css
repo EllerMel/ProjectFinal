@@ -61,6 +61,10 @@
     height: auto;
 }
 
+.farmImg {
+    max-height: 250px;
+}
+
 .logoMax {
     max-width: 50%;
 }

@@ -14,6 +14,12 @@
             <div class="col warning"><h4>CANCELLED</h4></div>
         </div>
         <br>
+        @elseif($lesson->isPending == 1)
+        <div class="row">
+            <div class="col-xs"><h4><strong>Lesson Status:</strong></h4></div>
+            <div class="col warning"><h4>PENDING</h4></div>
+        </div>
+        <br>
         @endif
         <div class="row">
             <div class="col-xs"><h4><strong>Date:</strong></h4></div>

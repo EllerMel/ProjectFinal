@@ -21,7 +21,11 @@
         <lesson-times></lesson-times>
     
     @else
-        <h1>{{ Auth::user()->individual-> displayName }}'s Lessons</h1>
+        <div class="row">
+            <div class="col"><h1>{{ Auth::user()->individual-> displayName }}'s Lessons</h1></div>
+            <div class="col"></div>
+            <div class="col"><a href="/lessons/create" class="btn btn-blue btn-main">Request a Lesson</a></div>
+        </div>
         <br>
         <p>Click on date to view lesson</p>
         <br>
@@ -41,10 +45,14 @@
             <div class="col">{{ $lesson->horse->name }}</div>
             <div class="col">{{ $lesson->location->description }}</div>
             <div class="col">{{ $lesson->instructor->displayName }}</div>
-            @if($lesson->isCanceled == 1)
+            @if(($lesson->isCanceled == 1) && ($lesson->isPending == 0))
             <div class="col">CANCELLED</div>
+            @elseif(($lesson->isCanceled == 0) && ($lesson->isPending == 1))
+            <div class="col">PENDING</div>
+            @elseif(($lesson->isCanceled == 1) && ($lesson->isPending == 1))
+            <div class="col">CANCELLED/PENDING</div>
             @else
-            <div class="col"></div> 
+            <div class="col"></div>
             @endif
         </div>
         @endif

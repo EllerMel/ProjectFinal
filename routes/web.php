@@ -46,6 +46,7 @@ Route::resource('farm', 'FarmController');
 Route::resource('lessons', 'LessonController');
 
 Route::get('/times', 'LessonController@times');
+Route::get('/pendingTimes', 'LessonController@pendingTimes');
 Route::get('/pastTimes', 'LessonController@pastTimes');
 Route::get('/cancelledTimes', 'LessonController@cancelledTimes');
 

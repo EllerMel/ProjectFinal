@@ -23,6 +23,7 @@ class CreateLessonsTable extends Migration
             $table->unsignedBigInteger('instructorID');
             $table->string('notes')->nullable();
             $table->boolean('isCanceled')->default(0);
+            $table->boolean('isPending')->default(0);
             $table->timestamps();
         });
     }

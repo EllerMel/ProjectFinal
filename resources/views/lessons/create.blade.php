@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container">
+        @if (Auth::user()->admin == 1)
         <h1>Add a Lesson</h1>
+        @else
+        <h1>Request a Lesson</h1>
+        @endif
 
         <form method="POST" action="/lessons">
         {{ csrf_field() }}
@@ -36,18 +40,25 @@
             </div>
             <div class="row">
                 <div class="col">
+                    @if (Auth::user()->admin == 1)
                     <select class="form-control" type="text" name="studentID"  class="input">
-                    <?php $students = \App\Individual::where('isInstructor', '0')->get(); ?>
+                    <?php $students = \App\Individual::where('isInstructor', '0')->orderBy('displayName', 'asc')->get(); ?>
                     <?php foreach ($students as $student){
                         ?>
                         <option value="<?php echo $student->id; ?>"><?php echo $student->displayName; ?></option>
                         <?php
                     }?>
                     </select>
+                    @else
+                    <?php $individual = Auth::user()->individual; ?>
+                    <select class="form-control" type="text" name="studentID"  class="input">
+                        <option value="<?php echo $individual->id; ?>"><?php echo $individual->displayName; ?></option>
+                    </select>
+                    @endif
                 </div>
                 <div class="col">
                 <select class="form-control" type="text" name="horseID"  class="input">
-                    <?php $horses = \App\Horse::where('isInactive', '0')->where('isDeleted', '0')->get(); ?>
+                    <?php $horses = \App\Horse::where('isInactive', '0')->where('isDeleted', '0')->orderBy('name', 'asc')->get(); ?>
                     <?php foreach ($horses as $horse){
                         ?>
                         <option value="<?php echo $horse->id; ?>"><?php echo $horse->name; ?></option>
@@ -69,7 +80,7 @@
             <div class="row">
                 <div class="col">
                     <select class="form-control" type="text" name="locationID"  class="input">
-                    <?php $locations = \App\Location::where('type', 'Arena')->where('isDeleted', '0')->get();; ?>
+                    <?php $locations = \App\Location::where('type', 'Arena')->where('isDeleted', '0')->orderBy('description', 'asc')->get();; ?>
                     <?php foreach ($locations as $location){
                         ?>
                         <option value="<?php echo $location->id; ?>"><?php echo $location->description; ?></option>
@@ -79,7 +90,7 @@
                 </div>
                 <div class="col">
                     <select class="form-control" type="text" name="instructorID"  class="input">
-                    <?php $instructors = \App\Individual::where('isInstructor', '1')->get();; ?>
+                    <?php $instructors = \App\Individual::where('isInstructor', '1')->orderBy('displayName', 'asc')->get();; ?>
                     <?php foreach ($instructors as $instructor){
                         ?>
                         <option value="<?php echo $instructor->id; ?>"><?php echo $instructor->displayName; ?></option>
@@ -108,9 +119,15 @@
             <div class="row">
             <div class="col">
                 <div class="field">
+                    @if (Auth::user()->admin == 1)
                     <div class="control">
                         <button type="submit" class="btn btn-blue btn-main">Add Lesson</button>
                     </div>
+                    @else
+                    <div class="control">
+                        <button type="submit" class="btn btn-blue btn-main">Submit Request</button>
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col">

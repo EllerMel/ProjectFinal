@@ -2,6 +2,7 @@
     <div>
         <div class="row">
             <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-lesson" @click="getLessons()">Current</button></div>
+            <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPendingLessons()">Pending</button></div>
             <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPastLessons()">Past</button></div>
             <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-lesson" @click="getCancelledLessons()">Cancelled</button></div>
         </div>
@@ -47,6 +48,14 @@ export default {
         getLessons() {
         axios
             .get("/times")
+            .then(Response => {
+            this.lessonObject = Response.data;
+            })
+            .catch(error => console.log(error));
+        },
+        getPendingLessons() {
+        axios
+            .get("/pendingTimes")
             .then(Response => {
             this.lessonObject = Response.data;
             })

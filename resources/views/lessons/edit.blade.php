@@ -12,7 +12,16 @@
         <div class="form-group">
             <div class="row">
                 <div class="col"></div>
-                <div class="col center">
+                <div class="col" style="text-align:left;">
+                    <input class="form-check-input" type="checkbox" name="isPending" value="{{ $lesson->isPending }}" id="{{ $lesson->id }}"
+                        @if($lesson->isPending) checked="checked" @endif >
+
+                        <label class="form-check-label">Lesson Pending</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col" style="text-align:left;">
                     <input class="form-check-input" type="checkbox" name="isCanceled" value="{{ $lesson->isCanceled }}" id="{{ $lesson->id }}"
                         @if($lesson->isCanceled) checked="checked" @endif >
 

@@ -1908,6 +1908,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1924,20 +1925,29 @@ __webpack_require__.r(__webpack_exports__);
         return console.log(error);
       });
     },
-    getPastLessons: function getPastLessons() {
+    getPendingLessons: function getPendingLessons() {
       var _this2 = this;
 
-      axios.get("/pastTimes").then(function (Response) {
+      axios.get("/pendingTimes").then(function (Response) {
         _this2.lessonObject = Response.data;
       })["catch"](function (error) {
         return console.log(error);
       });
     },
-    getCancelledLessons: function getCancelledLessons() {
+    getPastLessons: function getPastLessons() {
       var _this3 = this;
 
-      axios.get("/cancelledTimes").then(function (Response) {
+      axios.get("/pastTimes").then(function (Response) {
         _this3.lessonObject = Response.data;
+      })["catch"](function (error) {
+        return console.log(error);
+      });
+    },
+    getCancelledLessons: function getCancelledLessons() {
+      var _this4 = this;
+
+      axios.get("/cancelledTimes").then(function (Response) {
+        _this4.lessonObject = Response.data;
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -37368,6 +37378,25 @@ var render = function() {
                 }
               },
               [_vm._v("Current")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col", staticStyle: { "text-align": "center" } },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-dark btn-lesson",
+                on: {
+                  click: function($event) {
+                    return _vm.getPendingLessons()
+                  }
+                }
+              },
+              [_vm._v("Pending")]
             )
           ]
         ),

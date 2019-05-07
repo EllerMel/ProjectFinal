@@ -29,9 +29,27 @@ class LessonController extends Controller
                 ->leftJoin('locations', 'lessons.locationID', '=', 'locations.id')
                 ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
                             'horses.name as horse', 'locations.description as location', 'isCanceled')
-                ->where('lessonDate', ">=", now())
+                ->where('lessonDate', ">=", date("Y-m-d"))
                 ->where('isCanceled', "=", 0)
+                ->where('isPending', "=", 0)
                 ->orderBy('lessonDate', 'desc')
+                ->orderBy('lessonTime', 'asc')
+                ->get();
+        return json_encode($lessons);
+    }
+
+    public function pendingTimes()
+    {
+        $lessons = Lesson::orderBy('lessonDate')
+                ->leftJoin('individuals as student', 'lessons.studentID', '=', 'student.id')
+                ->leftJoin('individuals as instructor', 'lessons.instructorID', '=', 'instructor.id')
+                ->leftJoin('horses', 'lessons.horseID', '=', 'horses.id')
+                ->leftJoin('locations', 'lessons.locationID', '=', 'locations.id')
+                ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
+                            'horses.name as horse', 'locations.description as location', 'isCanceled')
+                ->where('isPending', "=", 1)
+                ->orderBy('lessonDate', 'desc')
+                ->orderBy('lessonTime', 'asc')
                 ->get();
         return json_encode($lessons);
     }
@@ -45,9 +63,11 @@ class LessonController extends Controller
                 ->leftJoin('locations', 'lessons.locationID', '=', 'locations.id')
                 ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
                             'horses.name as horse', 'locations.description as location', 'isCanceled')
-                ->where('lessonDate', "<", now())
+                ->where('lessonDate', "<", date("Y-m-d"))
                 ->where('isCanceled', "=", 0)
+                ->where('isPending', "=", 0)
                 ->orderBy('lessonDate', 'desc')
+                ->orderBy('lessonTime', 'asc')
                 ->get();
         return json_encode($lessons);
     }
@@ -62,7 +82,9 @@ class LessonController extends Controller
                 ->select('lessons.id', 'lessonDate', 'lessonTime', 'student.displayName as rider', 'instructor.displayName as instructor', 
                             'horses.name as horse', 'locations.description as location', 'isCanceled')
                 ->where('isCanceled', "=", 1)
+                ->where('isPending', "=", 0)
                 ->orderBy('lessonDate', 'desc')
+                ->orderBy('lessonTime', 'asc')
                 ->get();
         return json_encode($lessons);
     }
@@ -74,13 +96,7 @@ class LessonController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        if ($user->admin)
-        {
-            return view('lessons.create');
-        } else {
-            return redirect('/lessons');
-        }
+        return view('lessons.create');
     }
 
     /**
@@ -102,6 +118,14 @@ class LessonController extends Controller
         $lesson->notes = request('notes');
         
         $lesson->isCanceled = 0;
+
+        $user = Auth::user();
+        if ($user->admin)
+        {        
+            $lesson->isPending = 0;
+        } else {
+            $lesson->isPending = 1;
+        }
 
         $lesson->save();
 
@@ -149,6 +173,7 @@ class LessonController extends Controller
         $lesson = Lesson::findOrFail($id);
 
         $lesson->isCanceled = (isset($_POST['isCanceled']) ? 1 : 0);
+        $lesson->isPending = (isset($_POST['isPending']) ? 1 : 0);
         
         $lesson->lessonDate = request('lessonDate');
         $lesson->lessonTime = request('lessonTime');

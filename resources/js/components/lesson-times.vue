@@ -1,6 +1,22 @@
 <template>
     <div>
         <div class="row">
+            <div class="col"><h1>Lessons - {{status}}</h1></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"><a href="/lessons/create" class="btn btn-blue btn-main">Add Lesson</a></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"><a href="/locations" class="btn btn-grey btn-main">Add/Edit Arenas</a></div>
+        </div>
+        <p>Click on date to view lesson</p>
+        <br>
+
+        <div class="row">
             <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-lesson" @click="getLessons()">Current</button></div>
             <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPendingLessons()">Pending</button></div>
             <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPastLessons()">Past</button></div>
@@ -42,6 +58,7 @@ export default {
     data() {
         return {
             lessonObject: [],
+            status: 'Current',
         };
     },
     methods: {
@@ -50,6 +67,7 @@ export default {
             .get("/times")
             .then(Response => {
             this.lessonObject = Response.data;
+            this.status = 'Current';
             })
             .catch(error => console.log(error));
         },
@@ -58,6 +76,7 @@ export default {
             .get("/pendingTimes")
             .then(Response => {
             this.lessonObject = Response.data;
+            this.status = 'Pending';
             })
             .catch(error => console.log(error));
         },
@@ -66,6 +85,7 @@ export default {
             .get("/pastTimes")
             .then(Response => {
             this.lessonObject = Response.data;
+            this.status = 'Past';
             })
             .catch(error => console.log(error));
         },
@@ -74,6 +94,7 @@ export default {
             .get("/cancelledTimes")
             .then(Response => {
             this.lessonObject = Response.data;
+            this.status = 'Cancelled';
             })
             .catch(error => console.log(error));
         },

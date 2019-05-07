@@ -1909,10 +1909,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      lessonObject: []
+      lessonObject: [],
+      status: 'Current'
     };
   },
   methods: {
@@ -1921,6 +1938,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/times").then(function (Response) {
         _this.lessonObject = Response.data;
+        _this.status = 'Current';
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -1930,6 +1948,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/pendingTimes").then(function (Response) {
         _this2.lessonObject = Response.data;
+        _this2.status = 'Pending';
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -1939,6 +1958,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/pastTimes").then(function (Response) {
         _this3.lessonObject = Response.data;
+        _this3.status = 'Past';
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -1948,6 +1968,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/cancelledTimes").then(function (Response) {
         _this4.lessonObject = Response.data;
+        _this4.status = 'Cancelled';
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -37363,6 +37384,20 @@ var render = function() {
     "div",
     [
       _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("h1", [_vm._v("Lessons - " + _vm._s(_vm.status))])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("p", [_vm._v("Click on date to view lesson")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
         _c(
           "div",
           { staticClass: "col", staticStyle: { "text-align": "right" } },
@@ -37442,7 +37477,7 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm._m(0),
+      _vm._m(2),
       _vm._v(" "),
       _vm._l(_vm.lessonObject, function(lesson, index) {
         return _c("div", { key: lesson.id }, [
@@ -37496,6 +37531,48 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-blue btn-main",
+            attrs: { href: "/lessons/create" }
+          },
+          [_vm._v("Add Lesson")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-grey btn-main",
+            attrs: { href: "/locations" }
+          },
+          [_vm._v("Add/Edit Arenas")]
+        )
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

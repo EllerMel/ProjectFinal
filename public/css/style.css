@@ -25,28 +25,6 @@
     font-size: 16px;
 }
 
-.btn-two {
-    border: 1 px black;
-    color: black;
-    min-width: 125px;
-    margin-top:10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-.btn-lesson {
-    border: 1 px black;
-    color: black;
-    min-width: 125px;
-    margin-top:10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-}
-
 .btn-blue {
     background-color:  rgba(21, 139, 186, 0.808);
 }
@@ -61,6 +39,29 @@
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
+}
+
+.btn-lesson {
+    border-color: rgb(21, 139, 186);;
+    color: rgb(21, 139, 186);;
+    min-width: 125px;
+    margin-top:10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.btn-lesson:not(:disabled):not(.disabled):active, .btn-lesson:not(:disabled):not(.disabled).active, .show > .btn-lesson.dropdown-toggle {
+    background-color: rgb(21, 139, 186);
+    border-color: rgb(21, 139, 186);
+    color: #fff;
+}
+   
+.btn-lesson:hover {
+    background-color: rgb(21, 139, 186);
+    border-color: rgb(21, 139, 186);
+    color: #fff;
 }
 
 .center {

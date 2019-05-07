@@ -1929,7 +1929,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       lessonObject: [],
-      status: 'Current'
+      status: 'Current',
+      activeBtn: 'btnCurrent'
     };
   },
   methods: {
@@ -37406,9 +37407,10 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-outline-dark btn-lesson",
+                class: { active: _vm.activeBtn === "btnCurrent" },
                 on: {
                   click: function($event) {
-                    return _vm.getLessons()
+                    _vm.getLessons(), (_vm.activeBtn = "btnCurrent")
                   }
                 }
               },
@@ -37425,9 +37427,10 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-outline-dark btn-lesson",
+                class: { active: _vm.activeBtn === "btnPending" },
                 on: {
                   click: function($event) {
-                    return _vm.getPendingLessons()
+                    _vm.getPendingLessons(), (_vm.activeBtn = "btnPending")
                   }
                 }
               },
@@ -37444,9 +37447,10 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-outline-dark btn-lesson",
+                class: { active: _vm.activeBtn === "btnPast" },
                 on: {
                   click: function($event) {
-                    return _vm.getPastLessons()
+                    _vm.getPastLessons(), (_vm.activeBtn = "btnPast")
                   }
                 }
               },
@@ -37463,9 +37467,10 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-outline-dark btn-lesson",
+                class: { active: _vm.activeBtn === "btnCancelled" },
                 on: {
                   click: function($event) {
-                    return _vm.getCancelledLessons()
+                    _vm.getCancelledLessons(), (_vm.activeBtn = "btnCancelled")
                   }
                 }
               },

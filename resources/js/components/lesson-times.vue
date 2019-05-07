@@ -17,10 +17,10 @@
         <br>
 
         <div class="row">
-            <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-lesson" @click="getLessons()">Current</button></div>
-            <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPendingLessons()">Pending</button></div>
-            <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPastLessons()">Past</button></div>
-            <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-lesson" @click="getCancelledLessons()">Cancelled</button></div>
+            <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-lesson" @click="getLessons(), activeBtn = 'btnCurrent'" :class="{active: activeBtn === 'btnCurrent' }">Current</button></div>
+            <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPendingLessons(), activeBtn = 'btnPending'" :class="{active: activeBtn === 'btnPending' }">Pending</button></div>
+            <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPastLessons(), activeBtn = 'btnPast'" :class="{active: activeBtn === 'btnPast' }">Past</button></div>
+            <div class="col" style="text-align:left;"><button class="btn btn-outline-dark btn-lesson" @click="getCancelledLessons(), activeBtn = 'btnCancelled'" :class="{active: activeBtn === 'btnCancelled' }">Cancelled</button></div>
         </div>
         <br>
 
@@ -59,6 +59,7 @@ export default {
         return {
             lessonObject: [],
             status: 'Current',
+            activeBtn: 'btnCurrent'
         };
     },
     methods: {

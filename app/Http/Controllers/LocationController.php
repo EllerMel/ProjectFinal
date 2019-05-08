@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,19 +20,14 @@ class LocationController extends Controller
      */
     public function index()
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                $locations = Location::all();
+            $locations = Location::all();
 
-                return view('locations.index', compact('locations'));
-            } else {
-                return redirect('/home');
-            }
+            return view('locations.index', compact('locations'));
         } else {
-            return view('auth/login');
+            return redirect('/home');
         }
     }
 
@@ -38,17 +38,12 @@ class LocationController extends Controller
      */
     public function create()
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                return view('locations.create');
-            } else {
-                return redirect('/home');
-            }
+            return view('locations.create');
         } else {
-            return view('auth/login');
+            return redirect('/home');
         }
     }
 
@@ -91,18 +86,13 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                $location = Location::findOrFail($id);
-                return view('locations.edit', compact('location'));
-            } else {
-                return redirect('/home');
-            }
+            $location = Location::findOrFail($id);
+            return view('locations.edit', compact('location'));
         } else {
-            return view('auth/login');
+            return redirect('/home');
         }
     }
 

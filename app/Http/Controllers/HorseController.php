@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\File;
 
 class HorseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,14 +21,9 @@ class HorseController extends Controller
      */
     public function index()
     {
-        if (Auth::check())
-        {
-            $horses = Horse::all()->sortBy("name");
+        $horses = Horse::all()->sortBy("name");
 
-            return view('horses.index', compact('horses'));
-        } else {
-            return view('auth/login');
-        }
+        return view('horses.index', compact('horses'));
     }
 
     /**
@@ -34,18 +33,13 @@ class HorseController extends Controller
      */
     public function create()
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                return view('horses.create');
+            return view('horses.create');
 
-            } else {
-                return redirect('/horses');
-            }
         } else {
-            return view('auth/login');
+            return redirect('/horses');
         }
     }
 
@@ -105,12 +99,7 @@ class HorseController extends Controller
      */
     public function show(Horse $horse)
     {
-        if (Auth::check())
-        {
-            return view('horses.show', compact('horse'));
-        } else {
-            return view('auth/login');
-        }
+        return view('horses.show', compact('horse'));
     }
 
     /**
@@ -121,19 +110,14 @@ class HorseController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                $horse = Horse::findOrFail($id);
-                return view('horses.edit', compact('horse'));
+            $horse = Horse::findOrFail($id);
+            return view('horses.edit', compact('horse'));
 
-            } else {
-                return redirect('/horses');
-            }
         } else {
-            return view('auth/login');
+            return redirect('/horses');
         }
     }
 

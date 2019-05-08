@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\File;
 
 class FarmController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -17,14 +22,9 @@ class FarmController extends Controller
      */
     public function index()
     {
-        if (Auth::check())
-        {
-            $farms = Farm::all();
+        $farms = Farm::all();
 
-            return view('farms.index', compact('farms'));
-        } else {
-            return view('auth/login');
-        }
+        return view('farms.index', compact('farms'));
     }
 
     /**
@@ -34,18 +34,13 @@ class FarmController extends Controller
      */
     public function create()
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                return view('farms.create');
+            return view('farms.create');
 
-            } else {
-                return redirect('/farm');
-            }
         } else {
-            return view('auth/login');
+            return redirect('/farm');
         }
     }
 
@@ -113,19 +108,14 @@ class FarmController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                $farm = Farm::findOrFail($id);
-                return view('farms.edit', compact('farm'));
+            $farm = Farm::findOrFail($id);
+            return view('farms.edit', compact('farm'));
 
-            } else {
-                return redirect('/farm');
-            }
         } else {
-            return view('auth/login');
+            return redirect('/farm');
         }
     }
 

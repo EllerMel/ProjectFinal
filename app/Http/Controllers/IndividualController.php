@@ -8,10 +8,22 @@ use Illuminate\Http\Request;
 
 class IndividualController extends Controller
 {
+     /* The below routes to the login page 
+     * in the event of a timeout or non logged in user
+     * accessing any of the below pages*/   
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * Before discovering the over all route above,
+     * I wrapped every view section of every controller
+     * in the auth check below
      */
     public function index()
     {
@@ -54,19 +66,14 @@ class IndividualController extends Controller
      */
     public function show($id)
     {
-        if (Auth::check())
+        $user = Auth::user();
+        
+        if ($user->admin || $user->individual->id == $id)
         {
-            $user = Auth::user();
-            
-            if ($user->admin || $user->individual->id == $id)
-            {
-                $individual = Individual::findOrFail($id);
-                return view('individuals.show', compact('individual'));
-            } else{
-                return redirect('/home');
-            }
-        } else {
-            return view('auth/login');
+            $individual = Individual::findOrFail($id);
+            return view('individuals.show', compact('individual'));
+        } else{
+            return redirect('/home');
         }
     }
 
@@ -78,20 +85,15 @@ class IndividualController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check())
+        $user = Auth::user();
+        
+        if ($user->admin || $user->individual->id == $id)
         {
-            $user = Auth::user();
-            
-            if ($user->admin || $user->individual->id == $id)
-            {
-                $individual = Individual::findOrFail($id);
-                return view('individuals.edit', compact('individual'));
-            } else{
-                    return redirect('/home');
+            $individual = Individual::findOrFail($id);
+            return view('individuals.edit', compact('individual'));
+        } else{
+                return redirect('/home');
             }
-        } else {
-            return view('auth/login');
-        }
     }
 
     /**

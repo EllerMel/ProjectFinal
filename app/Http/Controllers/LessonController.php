@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,14 +20,9 @@ class LessonController extends Controller
      */
     public function index()
     {
-        if (Auth::check())
-        {
-            $lessons = Lesson::orderBy('lessonDate')->get();
-            
-            return view('lessons.index', compact('lessons'));
-        } else {
-            return view('auth/login');
-        }
+        $lessons = Lesson::orderBy('lessonDate')->get();
+        
+        return view('lessons.index', compact('lessons'));
     }
 
     public function times()
@@ -101,12 +101,7 @@ class LessonController extends Controller
      */
     public function create()
     {
-        if (Auth::check())
-        {
-            return view('lessons.create');
-        } else {
-            return view('auth/login');
-        }
+        return view('lessons.create');
     }
 
     /**
@@ -150,12 +145,7 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        if (Auth::check())
-        {
-            return view('lessons.show', compact('lesson'));
-        } else {
-            return view('auth/login');
-        }
+        return view('lessons.show', compact('lesson'));
     }
 
     /**
@@ -166,18 +156,13 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check())
+        $user = Auth::user();
+        if ($user->admin)
         {
-            $user = Auth::user();
-            if ($user->admin)
-            {
-                $lesson = Lesson::findOrFail($id);
-                return view('lessons.edit', compact('lesson'));
-            } else {
-                return redirect('/lessons');
-            }
+            $lesson = Lesson::findOrFail($id);
+            return view('lessons.edit', compact('lesson'));
         } else {
-            return view('auth/login');
+            return redirect('/lessons');
         }
     }
 

@@ -25,6 +25,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <!-- Generate a URL for an asset using HTTPS -->
+    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+   <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
 </head>
 <body>
     <div id="app">

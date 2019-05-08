@@ -17,9 +17,14 @@ class FarmController extends Controller
      */
     public function index()
     {
-        $farms = Farm::all();
+        if (Auth::check())
+        {
+            $farms = Farm::all();
 
-        return view('farms.index', compact('farms'));
+            return view('farms.index', compact('farms'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -29,13 +34,18 @@ class FarmController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            return view('farms.create');
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                return view('farms.create');
 
+            } else {
+                return redirect('/farm');
+            }
         } else {
-            return redirect('/farm');
+            return view('auth/login');
         }
     }
 
@@ -103,14 +113,19 @@ class FarmController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            $farm = Farm::findOrFail($id);
-            return view('farms.edit', compact('farm'));
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                $farm = Farm::findOrFail($id);
+                return view('farms.edit', compact('farm'));
 
+            } else {
+                return redirect('/farm');
+            }
         } else {
-            return redirect('/farm');
+            return view('auth/login');
         }
     }
 

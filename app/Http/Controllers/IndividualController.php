@@ -15,9 +15,14 @@ class IndividualController extends Controller
      */
     public function index()
     {
-        $individuals = Individual::orderBy('displayName')->get();
+        if (Auth::check())
+        {
+            $individuals = Individual::orderBy('displayName')->get();
 
-        return view('individuals.index', compact('individuals'));
+            return view('individuals.index', compact('individuals'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -49,14 +54,19 @@ class IndividualController extends Controller
      */
     public function show($id)
     {
-        $user = Auth::user();
-        
-        if ($user->admin || $user->individual->id == $id)
+        if (Auth::check())
         {
-            $individual = Individual::findOrFail($id);
-            return view('individuals.show', compact('individual'));
-        } else{
-            return redirect('/home');
+            $user = Auth::user();
+            
+            if ($user->admin || $user->individual->id == $id)
+            {
+                $individual = Individual::findOrFail($id);
+                return view('individuals.show', compact('individual'));
+            } else{
+                return redirect('/home');
+            }
+        } else {
+            return view('auth/login');
         }
     }
 
@@ -68,15 +78,20 @@ class IndividualController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        
-        if ($user->admin || $user->individual->id == $id)
+        if (Auth::check())
         {
-            $individual = Individual::findOrFail($id);
-            return view('individuals.edit', compact('individual'));
-        } else{
-                return redirect('/home');
+            $user = Auth::user();
+            
+            if ($user->admin || $user->individual->id == $id)
+            {
+                $individual = Individual::findOrFail($id);
+                return view('individuals.edit', compact('individual'));
+            } else{
+                    return redirect('/home');
             }
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**

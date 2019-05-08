@@ -15,9 +15,14 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::orderBy('lessonDate')->get();
-        
-        return view('lessons.index', compact('lessons'));
+        if (Auth::check())
+        {
+            $lessons = Lesson::orderBy('lessonDate')->get();
+            
+            return view('lessons.index', compact('lessons'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     public function times()
@@ -96,7 +101,12 @@ class LessonController extends Controller
      */
     public function create()
     {
-        return view('lessons.create');
+        if (Auth::check())
+        {
+            return view('lessons.create');
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -140,7 +150,12 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        return view('lessons.show', compact('lesson'));
+        if (Auth::check())
+        {
+            return view('lessons.show', compact('lesson'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -151,13 +166,18 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            $lesson = Lesson::findOrFail($id);
-            return view('lessons.edit', compact('lesson'));
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                $lesson = Lesson::findOrFail($id);
+                return view('lessons.edit', compact('lesson'));
+            } else {
+                return redirect('/lessons');
+            }
         } else {
-            return redirect('/lessons');
+            return view('auth/login');
         }
     }
 

@@ -17,9 +17,14 @@ class HorseController extends Controller
      */
     public function index()
     {
-        $horses = Horse::all()->sortBy("name");
+        if (Auth::check())
+        {
+            $horses = Horse::all()->sortBy("name");
 
-        return view('horses.index', compact('horses'));
+            return view('horses.index', compact('horses'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -29,13 +34,18 @@ class HorseController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            return view('horses.create');
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                return view('horses.create');
 
+            } else {
+                return redirect('/horses');
+            }
         } else {
-            return redirect('/horses');
+            return view('auth/login');
         }
     }
 
@@ -95,7 +105,12 @@ class HorseController extends Controller
      */
     public function show(Horse $horse)
     {
-        return view('horses.show', compact('horse'));
+        if (Auth::check())
+        {
+            return view('horses.show', compact('horse'));
+        } else {
+            return view('auth/login');
+        }
     }
 
     /**
@@ -106,14 +121,19 @@ class HorseController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            $horse = Horse::findOrFail($id);
-            return view('horses.edit', compact('horse'));
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                $horse = Horse::findOrFail($id);
+                return view('horses.edit', compact('horse'));
 
+            } else {
+                return redirect('/horses');
+            }
         } else {
-            return redirect('/horses');
+            return view('auth/login');
         }
     }
 

@@ -15,14 +15,19 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            $locations = Location::all();
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                $locations = Location::all();
 
-            return view('locations.index', compact('locations'));
+                return view('locations.index', compact('locations'));
+            } else {
+                return redirect('/home');
+            }
         } else {
-            return redirect('/home');
+            return view('auth/login');
         }
     }
 
@@ -33,12 +38,17 @@ class LocationController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            return view('locations.create');
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                return view('locations.create');
+            } else {
+                return redirect('/home');
+            }
         } else {
-            return redirect('/home');
+            return view('auth/login');
         }
     }
 
@@ -81,13 +91,18 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
-        if ($user->admin)
+        if (Auth::check())
         {
-            $location = Location::findOrFail($id);
-            return view('locations.edit', compact('location'));
+            $user = Auth::user();
+            if ($user->admin)
+            {
+                $location = Location::findOrFail($id);
+                return view('locations.edit', compact('location'));
+            } else {
+                return redirect('/home');
+            }
         } else {
-            return redirect('/home');
+            return view('auth/login');
         }
     }
 

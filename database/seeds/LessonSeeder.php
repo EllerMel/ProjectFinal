@@ -49,6 +49,52 @@ class LessonSeeder extends Seeder
         ]);
 
         \App\Lesson::create([
+            'lessonDate' => '2019-05-05',
+            'lessonTime' => '12:30:00',
+            'studentID' => '7',
+            'horseID' => '5',
+            'locationID' => '8',
+            'instructorID' => '2',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-05-05',
+            'lessonTime' => '13:30:00',
+            'studentID' => '8',
+            'horseID' => '6',
+            'locationID' => '8',
+            'instructorID' => '2',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-05-05',
+            'lessonTime' => '14:30:00',
+            'studentID' => '9',
+            'horseID' => '7',
+            'locationID' => '8',
+            'instructorID' => '2',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-05-05',
+            'lessonTime' => '15:30:00',
+            'studentID' => '10',
+            'horseID' => '8',
+            'locationID' => '9',
+            'instructorID' => '2',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-05-17',
+            'lessonTime' => '12:30:00',
+            'studentID' => '3',
+            'horseID' => '2',
+            'locationID' => '9',
+            'instructorID' => '2',
+            'isPending' => '1',
+        ]);
+
+        \App\Lesson::create([
             'lessonDate' => '2019-05-18',
             'lessonTime' => '12:30:00',
             'studentID' => '3',
@@ -125,7 +171,7 @@ class LessonSeeder extends Seeder
             'lessonDate' => '2019-05-25',
             'lessonTime' => '12:30:00',
             'studentID' => '3',
-            'horseID' => '1',
+            'horseID' => '7',
             'locationID' => '7',
             'instructorID' => '1',
         ]);
@@ -197,7 +243,7 @@ class LessonSeeder extends Seeder
             'lessonDate' => '2019-06-01',
             'lessonTime' => '12:30:00',
             'studentID' => '3',
-            'horseID' => '1',
+            'horseID' => '9',
             'locationID' => '7',
             'instructorID' => '1',
         ]);
@@ -263,6 +309,42 @@ class LessonSeeder extends Seeder
             'horseID' => '8',
             'locationID' => '9',
             'instructorID' => '2',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-06-08',
+            'lessonTime' => '12:30:00',
+            'studentID' => '15',
+            'horseID' => '8',
+            'locationID' => '7',
+            'instructorID' => '1',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-06-08',
+            'lessonTime' => '13:30:00',
+            'studentID' => '14',
+            'horseID' => '7',
+            'locationID' => '7',
+            'instructorID' => '1',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-06-08',
+            'lessonTime' => '14:30:00',
+            'studentID' => '13',
+            'horseID' => '6',
+            'locationID' => '7',
+            'instructorID' => '1',
+        ]);
+
+        \App\Lesson::create([
+            'lessonDate' => '2019-06-08',
+            'lessonTime' => '15:30:00',
+            'studentID' => '12',
+            'horseID' => '5',
+            'locationID' => '9',
+            'instructorID' => '1',
         ]);
     }
 }

@@ -121,8 +121,15 @@ h1 {
     background: white
 }
 
+.carousel {
+    width:40%;
+}
+
 @media only screen and (max-width: 900px) {
     .cell{
         display: none;
     }
+    .carousel {
+        width:75%;
+      }
 }

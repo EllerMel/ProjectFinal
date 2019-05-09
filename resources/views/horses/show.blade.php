@@ -5,31 +5,53 @@
 
     <h1>{{ $horse->name }}</h1>
     <br>
-    <div class="row">
-        @if($horse->mainImg)
-        <div class="col-lg center">
-            <img class="horseImg" src="/files/{{$horse->mainImg}}" />
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @if($horse->mainImg)
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            @endif
+            @if($horse->secondImg)
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            @endif
+            @if($horse->thirdImg)
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            @endif
+            @if($horse->fourthImg)
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            @endif
+        </ol>
+        <div class="carousel-inner">
+            @if($horse->mainImg)
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="/files/{{$horse->mainImg}}" alt="First slide">
+            </div>
+            @endif
+            @if($horse->secondImg)
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/files/{{$horse->secondImg}}" alt="Second slide">
+            </div>
+            @endif
+            @if($horse->thirdImg)
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/files/{{$horse->thirdImg}}" alt="Third slide">
+            </div>
+            @endif
+            @if($horse->fourthImg)
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/files/{{$horse->fourthImg}}" alt="Fourth slide">
+            </div>
+            @endif
         </div>
-        @endif
-        @if($horse->secondImg)
-        <div class="col-lg center">
-            <img class="horseImg" src="/files/{{$horse->secondImg}}" />
-        </div>
-        @endif
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <br>
-    <div class="row">
-        @if($horse->thirdImg)
-        <div class="col-lg center">
-            <img class="horseImg" src="/files/{{$horse->thirdImg}}" />
-        </div>
-        @endif
-        @if($horse->fourthImg)
-        <div class="col-lg center">
-            <img class="horseImg" src="/files/{{$horse->fourthImg}}" />
-        </div>
-        @endif
-    </div>
+    
     <br>
     <div class="container">
         @if($horse->isInactive == 1)
@@ -102,6 +124,8 @@
         </div>
         <div class="col">
             <a href="/horses" class="btn btn-secondary btn-main">Close</a>
+        </div>
+        <div class="col">
         </div>
     </div>
     @else

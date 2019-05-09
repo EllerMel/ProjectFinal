@@ -151,7 +151,7 @@
                 <div class="col">
                     <div class="field">
                         <div class="control">
-                            <button type="submit" class="btn btn-blue btn-main">Update Lesson</button>
+                            <button type="submit" class="btn btn-blue btn-main">Update</button>
                         </div>
                     </div>
                 </div>
@@ -162,8 +162,9 @@
                         </div>
                     </div>
                 </div>
-        </form>            
-        </div>
-
+                <div class="col">
+                </div>
+            </div>
+    </form>  
 </div>
 @endsection

@@ -2,6 +2,10 @@
    background-color: rgba(21, 139, 186, 0.808) !important;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: #f8fafc !important;
+}
+
 .btn-menu {
     background-color:  rgb(21, 139, 186);
     border: none;
@@ -82,7 +86,7 @@
 }
 
 .logoMin {
-    max-height: 75px;
+    max-height: 50px;
 }
 
 .link {

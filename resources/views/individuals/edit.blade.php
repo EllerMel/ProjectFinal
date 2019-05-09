@@ -67,7 +67,7 @@
             <div class="col">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" class="btn btn-blue btn-main">Update Profile</button>
+                        <button type="submit" class="btn btn-blue btn-main">Update</button>
                     </div>
                 </div>
             </div>
@@ -82,22 +82,9 @@
                     </div>
                 </div>
             </div>
-    </form>            
-            <!-- <div class="col">
-                <form method="POST" action="/individuals/{{ $individual->id }}">
-                @method('DELETE')
-                @csrf       
-
-                    <div class="field">
-                        <div class="control">
-                            <button type="submit" class="btn btn-danger btn-main">Delete Profile</button>
-                        </div>
-                    </div>
-                 </form>
-            </div> -->
+            <div class="col">
+            </div>
         </div>
-
-    <br>
-
+    </form>      
 </div>
 @endsection

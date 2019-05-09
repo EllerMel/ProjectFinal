@@ -173,6 +173,8 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+            </div>
         </form>
     </div>
 @endsection

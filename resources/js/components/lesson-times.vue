@@ -13,9 +13,9 @@
             <div class="col"></div>
             <div class="col"><a href="/locations" class="btn btn-grey btn-main">Add/Edit Arenas</a></div>
         </div>
+        <br>
         <p>Click on date to view lesson</p>
         <br>
-
         <div class="row">
             <div class="col" style="text-align:right;"><button class="btn btn-outline-dark btn-lesson" @click="getLessons(), activeBtn = 'btnCurrent'" :class="{active: activeBtn === 'btnCurrent' }">Current</button></div>
             <div class="col" style="text-align:center;"><button class="btn btn-outline-dark btn-lesson" @click="getPendingLessons(), activeBtn = 'btnPending'" :class="{active: activeBtn === 'btnPending' }">Pending</button></div>
@@ -58,6 +58,9 @@ export default {
     data() {
         return {
             lessonObject: [],
+            horseObject: [],
+            instructorObject: [],
+            studentObject: [],
             status: 'Current',
             activeBtn: 'btnCurrent'
         };
@@ -105,10 +108,38 @@ export default {
             } else {
                 return "row shade";
             }
+        },
+        getHorseCount() {
+            axios
+                .get("/countHorses")
+                .then(Response => {
+                this.horseObject = Response.data;
+            })
+            .catch(error => console.log(error));
+        },
+        getInstructorCount() {
+            axios
+                .get("/countInstructors")
+                .then(Response => {
+                this.instructorObject = Response.data;
+            })
+            .catch(error => console.log(error));
+        },
+        getStudentCount() {
+            axios
+                .get("/countStudents")
+                .then(Response => {
+                this.studentObject = Response.data;
+            })
+            .catch(error => console.log(error));
         }
+
     },
     mounted() {
         this.getLessons();
+        this.getHorseCount();
+        this.getInstructorCount();
+        this.getStudentCount();
     }
 };
 </script>

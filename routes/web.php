@@ -49,5 +49,9 @@ Route::get('/times', 'LessonController@times');
 Route::get('/pendingTimes', 'LessonController@pendingTimes');
 Route::get('/pastTimes', 'LessonController@pastTimes');
 Route::get('/cancelledTimes', 'LessonController@cancelledTimes');
+Route::get('countActiveHorses', 'LessonController@countActiveHorses');
+Route::get('countInactiveHorses', 'LessonController@countInactiveHorses');
+Route::get('countInstructors', 'LessonController@countInstructors');
+Route::get('countStudents', 'LessonController@countStudents');
 
 Route::resource('locations', 'LocationController');

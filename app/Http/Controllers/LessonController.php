@@ -90,6 +90,48 @@ class LessonController extends Controller
         return json_encode($lessons);
     }
 
+    public function countActiveHorses()
+	    {
+	        $horses = Lesson::leftJoin('horses', 'lessons.horseID', '=', 'horses.id')
+                    ->select('horses.name as horse')
+                    ->where('isInactive', "=", 0)
+	                ->distinct()
+	                ->get();
+	
+            return json_encode($horses);
+        }
+
+    public function countInactiveHorses()
+    {
+        $horses = Lesson::leftJoin('horses', 'lessons.horseID', '=', 'horses.id')
+                ->select('horses.name as horse')
+                ->where('isInactive', "=", 1)
+                ->distinct()
+                ->get();
+
+        return json_encode($horses);
+    }
+        
+    public function countInstructors()
+    {
+        $instructors = Lesson::leftJoin('individuals as instructor', 'lessons.instructorID', '=', 'instructor.id')
+                ->select('instructor.displayName as instructor')
+                ->distinct()
+                ->get();
+
+        return json_encode($instructors);
+    }
+
+    public function countStudents()
+    {
+        $students = Lesson::leftJoin('individuals as student', 'lessons.studentID', '=', 'student.id')
+                ->select('student.displayName as rider')
+                ->distinct()
+                ->get();
+
+        return json_encode($students);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -109,37 +109,9 @@ export default {
                 return "row shade";
             }
         },
-        getHorseCount() {
-            axios
-                .get("/countHorses")
-                .then(Response => {
-                this.horseObject = Response.data;
-            })
-            .catch(error => console.log(error));
-        },
-        getInstructorCount() {
-            axios
-                .get("/countInstructors")
-                .then(Response => {
-                this.instructorObject = Response.data;
-            })
-            .catch(error => console.log(error));
-        },
-        getStudentCount() {
-            axios
-                .get("/countStudents")
-                .then(Response => {
-                this.studentObject = Response.data;
-            })
-            .catch(error => console.log(error));
-        }
-
     },
     mounted() {
         this.getLessons();
-        this.getHorseCount();
-        this.getInstructorCount();
-        this.getStudentCount();
     }
 };
 </script>

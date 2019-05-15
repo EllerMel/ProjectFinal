@@ -125,7 +125,7 @@
                     </div>
                     @else
                     <div class="control">
-                        <button type="submit" class="btn btn-blue btn-main">Submit Request</button>
+                        <button type="submit" class="btn btn-blue btn-main">Submit</button>
                     </div>
                     @endif
                 </div>
